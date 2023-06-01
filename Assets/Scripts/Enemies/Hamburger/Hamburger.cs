@@ -39,10 +39,6 @@ namespace Enemies.Hamburger
 
                     if (_collidedWithPlayer)
                     {
-                        rb.velocity = Vector2.zero;
-                        Physics2D.IgnoreCollision(coll, _shelfCollider, false);
-                        _onShelf = _onFloor = _collidedWithPlayer = false;
-                        _state = HamburgerState.Idle;
                         DestroyAction(this);
                     }
                     break;
@@ -68,6 +64,14 @@ namespace Enemies.Hamburger
                     _collidedWithPlayer = true;
             }
 
+        }
+
+        protected override void BeforeReturnToPool()
+        {
+            rb.velocity = Vector2.zero;
+            Physics2D.IgnoreCollision(coll, _shelfCollider, false);
+            _onShelf = _onFloor = _collidedWithPlayer = false;
+            _state = HamburgerState.Idle;
         }
 
         public override void OnPoolDestroy()
