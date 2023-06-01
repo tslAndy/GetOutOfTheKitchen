@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Enemies;
+
 
 namespace Pooling
 {
     public class PoolsManager : Singleton<PoolsManager>
     {
-        protected override void Awake()
+        public readonly PoolMemory<Hamburger> HamburgerPool;
+
+        public PoolsManager()
         {
-            base.Awake();
+            HamburgerPool = new PoolMemory<Hamburger>();
         }
+
     }
 }
