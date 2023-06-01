@@ -2,7 +2,7 @@ using System;
 using Pooling;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Hamburger
 {
     public class Hamburger : PoolObject<Hamburger>
     {
@@ -13,16 +13,10 @@ namespace Enemies
         private bool _onShelf, _onFloor, _collidedWithPlayer;
         private bool _destroyOnCollision;
         private Collider2D _shelfCollider;
-        private Transform _playerTransform;
-
-        private void Start()
-        {
-            _playerTransform = PlayerSingleton.Instance.Player.transform;
-        }
 
         private void Update()
         {
-            if (_playerTransform == null)
+            if (PlayerSingleton.Instance.Player == null)
                 return;
 
             switch (_state)
@@ -40,7 +34,7 @@ namespace Enemies
                         _state = HamburgerState.Running;
                     break;
                 case HamburgerState.Running:
-                    float direction = Mathf.Sign(_playerTransform.position.x - transform.position.x);
+                    float direction = Mathf.Sign(PlayerSingleton.Instance.Player.position.x - transform.position.x);
                     rb.velocity = direction > 0 ? HamburgerData.RunRightVector : HamburgerData.RunLeftVector;
 
                     if (_collidedWithPlayer)

@@ -2,7 +2,7 @@ using System.Collections;
 using Pooling;
 using UnityEngine;
 
-namespace Enemies
+namespace Enemies.Hamburger
 {
     public class HamburgerSpawner : MonoBehaviour
     {
