@@ -11,6 +11,7 @@ namespace Enemies
 
         private HamburgerState _state;
         private bool _onShelf, _onFloor, _collidedWithPlayer;
+        private bool _destroyOnCollision;
         private Collider2D _shelfCollider;
         private Transform _playerTransform;
 
@@ -66,7 +67,18 @@ namespace Enemies
                 _shelfCollider = col.collider;
             }
             else if (col.gameObject.CompareTag("Player"))
-                _collidedWithPlayer = true;
+            {
+                if (_destroyOnCollision)
+                    Destroy(gameObject);
+                else
+                    _collidedWithPlayer = true;
+            }
+
+        }
+
+        public override void OnPoolDestroy()
+        {
+            _destroyOnCollision = true;
         }
     }
 

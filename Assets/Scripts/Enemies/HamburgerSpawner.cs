@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Pooling;
 using UnityEngine;
 
@@ -13,13 +11,19 @@ namespace Enemies
 
         private void Start()
         {
-            InvokeRepeating(nameof(Spawn), 0, spawnRate);
+            StartCoroutine(SpawnCoroutine());
         }
 
-        private void Spawn()
+        private IEnumerator SpawnCoroutine()
         {
-            Hamburger hamburger = PoolsManager.Instance.HamburgerPool.GetPoolObject(hamburgerPrefab);
-            hamburger.transform.position = transform.position;
+            for (int i = 0; i < 4; i++)
+            {
+                Hamburger hamburger = PoolsManager.Instance.HamburgerPool.GetPoolObject(hamburgerPrefab);
+                hamburger.transform.position = transform.position;
+                yield return new WaitForSeconds(spawnRate);
+            }
+            yield return new WaitForSeconds(5f);
+            PoolsManager.Instance.HamburgerPool.ClearObjects(hamburgerPrefab);
         }
     }
 }

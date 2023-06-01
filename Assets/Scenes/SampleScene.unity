@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hamburgerPrefab: {fileID: 72532274949999663, guid: 8b644f86a7c49274ab16f0097f7d85ac, type: 3}
-  spawnRate: 10
+  spawnRate: 4
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
