@@ -18,15 +18,12 @@ namespace Pooling
 
         public T GetPoolObject(T poolObjectPrefab)
         {
+            poolObjectPrefab.SetDestroyAction(DestroyPoolObject);
+
             if (!_pools.TryGetValue(poolObjectPrefab.TagScriptable, out ObjectPool<T> objectPool))
             {
                 objectPool = new ObjectPool<T>(
-                    () =>
-                    {
-                        T poolObj = Object.Instantiate(poolObjectPrefab);
-                        poolObj.SetDestroyAction(DestroyPoolObject);
-                        return poolObj;
-                    },
+                    () => Object.Instantiate(poolObjectPrefab),
                     poolObj => poolObj.gameObject.SetActive(true),
                     poolObj => poolObj.gameObject.SetActive(false),
                     poolObj => Object.Destroy(poolObj.gameObject),
@@ -45,6 +42,7 @@ namespace Pooling
 
         private void DestroyPoolObject(T poolObject)
         {
+            poolObject.BeforeReturnToPool();
             _spawnedObjectsPool[poolObject.TagScriptable].Remove(poolObject);
             _pools[poolObject.TagScriptable].Release(poolObject);
         }

@@ -3,26 +3,15 @@ using System;
 
 namespace Pooling
 {
-    public abstract class PoolObject<T> : MonoBehaviour where T : MonoBehaviour
+    public abstract class PoolObject<T> : MonoBehaviour where T : class
     {
         [SerializeField] private ScriptableTag tagScriptable;
         public ScriptableTag TagScriptable => tagScriptable;
 
-        protected Action<T> DestroyAction;
+        protected static Action<T> DestroyAction;
 
-        private void Awake()
-        {
-            DestroyAction = new Action<T>(_ => BeforeReturnToPool());
-        }
-        
-        public void SetDestroyAction(Action<T> destroyAction)
-        {
-            DestroyAction += destroyAction;
-        }
-
+        public void SetDestroyAction(Action<T> destroyAction) => DestroyAction = destroyAction;
         public abstract void OnPoolDestroy();
-        protected abstract void BeforeReturnToPool();
+        public abstract void BeforeReturnToPool();
     }
 }
-
-

@@ -66,11 +66,12 @@ namespace Enemies.Hamburger
 
         }
 
-        protected override void BeforeReturnToPool()
+        public override void BeforeReturnToPool()
         {
             rb.velocity = Vector2.zero;
             Physics2D.IgnoreCollision(coll, _shelfCollider, false);
             _onShelf = _onFloor = _collidedWithPlayer = false;
+            _shelfCollider = null;
             _state = HamburgerState.Idle;
         }
 
