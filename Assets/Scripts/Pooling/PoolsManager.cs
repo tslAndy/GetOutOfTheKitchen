@@ -25,5 +25,9 @@ namespace Pooling
             }
             return (PoolMemory<T>) _pools[tempType];
         }
+
+        // TODO : make PoolMemory deleting
+        // TODO : automatically creat scriptables by gameobj name
+        // TODO : prefabs load and unload with addressables ?
     }
 }

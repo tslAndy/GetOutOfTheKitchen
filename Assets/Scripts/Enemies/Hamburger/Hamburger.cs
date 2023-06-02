@@ -9,6 +9,13 @@ namespace Enemies.Hamburger
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D coll;
 
+        private enum HamburgerState
+        {
+            Idle,
+            Jumping,
+            Running
+        }
+
         private HamburgerState _state;
         private bool _onShelf, _onFloor, _collidedWithPlayer;
         private bool _destroyOnCollision;
@@ -87,12 +94,5 @@ namespace Enemies.Hamburger
         public static readonly Vector2 JumpVector = Vector2.up * JumpSpeed;
         public static readonly Vector2 RunRightVector = Vector2.right * RunSpeed;
         public static readonly Vector2 RunLeftVector = Vector2.left * RunSpeed;
-    }
-
-    enum HamburgerState
-    {
-        Idle,
-        Jumping,
-        Running
     }
 }

@@ -26,7 +26,7 @@ namespace Enemies.Hamburger
                 yield return new WaitForSeconds(spawnRate);
             }
             yield return new WaitForSeconds(5f);
-            _hamburgerPoolMemory.ClearObjects(hamburgerPrefab);
+            _hamburgerPoolMemory.ClearWholePool();
         }
     }
 }
