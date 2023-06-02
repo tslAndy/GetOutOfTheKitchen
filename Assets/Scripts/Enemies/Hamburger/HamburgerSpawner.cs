@@ -9,8 +9,11 @@ namespace Enemies.Hamburger
         [SerializeField] private Hamburger hamburgerPrefab;
         [SerializeField] private float spawnRate;
 
+        private PoolMemory<Hamburger> _hamburgerPoolMemory;
+
         private void Start()
         {
+            _hamburgerPoolMemory = PoolsManager.Instance.GetPoolMemory<Hamburger>();
             StartCoroutine(SpawnCoroutine());
         }
 
@@ -18,12 +21,12 @@ namespace Enemies.Hamburger
         {
             for (int i = 0; i < 4; i++)
             {
-                Hamburger hamburger = PoolsManager.Instance.HamburgerPool.GetPoolObject(hamburgerPrefab);
+                Hamburger hamburger = _hamburgerPoolMemory.GetPoolObject(hamburgerPrefab);
                 hamburger.transform.position = transform.position;
                 yield return new WaitForSeconds(spawnRate);
             }
             yield return new WaitForSeconds(5f);
-            PoolsManager.Instance.HamburgerPool.ClearObjects(hamburgerPrefab);
+            _hamburgerPoolMemory.ClearObjects(hamburgerPrefab);
         }
     }
 }
