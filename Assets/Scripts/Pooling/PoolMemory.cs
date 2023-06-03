@@ -19,26 +19,33 @@ namespace Pooling
 
         public T GetPoolObject(T poolObjectPrefab)
         {
-            poolObjectPrefab.SetDestroyAction(DestroyPoolObject);
+            ObjectPool<T> objectPool;
+            if (!_pools.TryGetValue(poolObjectPrefab.TagScriptable, out objectPool))
+                objectPool = InitObjectPool(poolObjectPrefab);
 
-            if (!_pools.TryGetValue(poolObjectPrefab.TagScriptable, out ObjectPool<T> objectPool))
-            {
-                objectPool = new ObjectPool<T>(
-                    () => Object.Instantiate(poolObjectPrefab),
-                    poolObj => poolObj.gameObject.SetActive(true),
-                    poolObj => poolObj.gameObject.SetActive(false),
-                    poolObj => Object.Destroy(poolObj.gameObject),
-                    false, 100, 200
-                );
-                _pools.Add(poolObjectPrefab.TagScriptable, objectPool);
-
-                List<T> spawnedObjects = new List<T>();
-                _spawnedObjectsPool.Add(poolObjectPrefab.TagScriptable, spawnedObjects);
-            }
 
             T poolObject = objectPool.Get();
             _spawnedObjectsPool[poolObject.TagScriptable].Add(poolObject);
             return poolObject;
+        }
+
+        private ObjectPool<T> InitObjectPool(T poolObjectPrefab)
+        {
+            poolObjectPrefab.SetDestroyAction(DestroyPoolObject);
+
+            ObjectPool<T> objectPool = new ObjectPool<T>(
+                () => Object.Instantiate(poolObjectPrefab),
+                poolObj => poolObj.gameObject.SetActive(true),
+                poolObj => poolObj.gameObject.SetActive(false),
+                poolObj => Object.Destroy(poolObj.gameObject),
+                false, 100, 200
+            );
+            _pools.Add(poolObjectPrefab.TagScriptable, objectPool);
+
+            List<T> spawnedObjects = new List<T>();
+            _spawnedObjectsPool.Add(poolObjectPrefab.TagScriptable, spawnedObjects);
+
+            return objectPool;
         }
 
         private void DestroyPoolObject(T poolObject)
@@ -65,6 +72,21 @@ namespace Pooling
             }
         }
 
+        public void AddObjectToPool(T poolObj, bool active=true)
+        {
+            poolObj.SetDestroyAction(DestroyPoolObject);
+
+            ScriptableTag scriptableTag = poolObj.TagScriptable;
+            ObjectPool<T> objectPool;
+            if (!_pools.TryGetValue(scriptableTag, out objectPool))
+                objectPool = InitObjectPool(poolObj);
+
+            if (active)
+                _spawnedObjectsPool[poolObj.TagScriptable].Add(poolObj);
+            else
+                _pools[poolObj.TagScriptable].Release(poolObj);
+        }
+
         public void ClearWholePool()
         {
             List<ScriptableTag> keys = new List<ScriptableTag>(_pools.Keys);
@@ -77,7 +99,6 @@ namespace Pooling
                 ClearObjects(prefab);
                 Object.Destroy(prefab.gameObject);
             }
-
         }
     }
 }

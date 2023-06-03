@@ -25,7 +25,7 @@ namespace Enemies.Hamburger
                 hamburger.transform.position = transform.position;
                 yield return new WaitForSeconds(spawnRate);
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(20f);
             _hamburgerPoolMemory.ClearWholePool();
         }
     }
