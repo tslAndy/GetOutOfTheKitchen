@@ -10,10 +10,11 @@ namespace Enemies.Icecream
     public class Icecream : PoolObject<Icecream>
     {
         [SerializeField] private float speed, attackDistance;
-        [SerializeField] private int angleBetweenBalls, attacksAmount, timeBetweenAttacks;
+        [SerializeField] protected int angleBetweenBalls, attacksAmount, timeBetweenAttacks;
         [SerializeField] private IcecreamBall[] icecreamBalls;
+        [SerializeField] private float rotateSpeed;
 
-        private bool _destroyAfterAttack;
+        protected bool _destroyAfterAttack;
 
         private enum IcecreamState
         {
@@ -24,10 +25,12 @@ namespace Enemies.Icecream
         }
         private IcecreamState _state = IcecreamState.Idle;
         private PoolMemory<IcecreamBall> _icecreamBallPoolMemory;
+        protected IcecreamBall[] tempIcecreamBalls;
 
         private void Start()
         {
             _icecreamBallPoolMemory = PoolsManager.Instance.GetPoolMemory<IcecreamBall>();
+            tempIcecreamBalls = new IcecreamBall[icecreamBalls.Length];
         }
 
         private void Update()
@@ -41,7 +44,8 @@ namespace Enemies.Icecream
 
                 case IcecreamState.Fly:
                     Vector3 posDiff = (PlayerSingleton.Instance.Player.position - transform.position);
-                    transform.rotation = Quaternion.LookRotation(Vector3.forward, posDiff);
+                    Quaternion rotation = Quaternion.LookRotation(Vector3.forward, posDiff);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * rotateSpeed);
                     if (posDiff.magnitude <= attackDistance)
                     {
                         _state = IcecreamState.Attack;
@@ -67,24 +71,21 @@ namespace Enemies.Icecream
 
         private void Attack() => StartCoroutine(AttackCoroutine());
 
-        private IEnumerator AttackCoroutine()
+        protected virtual IEnumerator AttackCoroutine()
         {
             Transform playerTransform = PlayerSingleton.Instance.Player;
 
             float centerIndex = icecreamBalls.Length / 2.0f;
 
-            for (int i = 0; i < icecreamBalls.Length; i++)
-            {
-                icecreamBalls[i].gameObject.SetActive(false);
-            }
+            ChangeIcecreamBallsState(false);
 
             for (int j = 0; j < attacksAmount; j++)
             {
                 Vector2 direction = (playerTransform.position - transform.position).normalized;
-                for (int i = 0; i < icecreamBalls.Length; i++)
+                InitTempBalls();
+                for (int i = 0; i < tempIcecreamBalls.Length; i++)
                 {
-                    IcecreamBall icecreamBall = _icecreamBallPoolMemory.GetPoolObject(icecreamBalls[i]);
-                    icecreamBall.transform.position = icecreamBalls[i].transform.position;
+                    IcecreamBall icecreamBall = tempIcecreamBalls[i];
 
                     float angleToRotate = (i - centerIndex) * angleBetweenBalls;
                     icecreamBall.ChangeDirection(direction.Rotate(angleToRotate));
@@ -93,11 +94,27 @@ namespace Enemies.Icecream
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
 
+            ChangeIcecreamBallsState(true);
+            CheckDeath();
+        }
+
+        protected void ChangeIcecreamBallsState(bool active)
+        {
+            for (int i = 0; i < icecreamBalls.Length; i++)
+                icecreamBalls[i].gameObject.SetActive(active);
+        }
+
+        protected void InitTempBalls()
+        {
             for (int i = 0; i < icecreamBalls.Length; i++)
             {
-                icecreamBalls[i].gameObject.SetActive(true);
+                tempIcecreamBalls[i] = _icecreamBallPoolMemory.GetPoolObject(icecreamBalls[i]);
+                tempIcecreamBalls[i].gameObject.transform.position = icecreamBalls[i].gameObject.transform.position;
             }
+        }
 
+        protected void CheckDeath()
+        {
             if (_destroyAfterAttack)
                 Destroy(gameObject);
             else

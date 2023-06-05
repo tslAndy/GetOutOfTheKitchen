@@ -20,10 +20,14 @@ namespace Enemies.Icecream
 
         private IEnumerator SpawnCoroutine()
         {
+            while (true)
+            {
+                Debug.Log("Spawning");
+                Icecream icecream = _icecreamPoolMemory.GetPoolObject(icecreamPrefab);
+                icecream.transform.position = transform.position;
+                yield return new WaitForSeconds(spawnRate);
 
-            Icecream icecream = _icecreamPoolMemory.GetPoolObject(icecreamPrefab);
-            icecream.transform.position = transform.position;
-            yield return new WaitForSeconds(spawnRate);
+            }
         }
     }
 }
