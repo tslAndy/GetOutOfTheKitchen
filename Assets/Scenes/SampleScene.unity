@@ -273,6 +273,7 @@ MonoBehaviour:
   rb: {fileID: 58029723}
   inputHandler: {fileID: 58029728}
   moveSpeed: 3
+  jumpSpeed: 10
 --- !u!114 &58029728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icecreamPrefab: {fileID: 433879125259659852, guid: 629ef56564162fc42b7fe19f832cf321, type: 3}
-  spawnRate: 5
+  spawnRate: 10
 --- !u!1 &1481033532
 GameObject:
   m_ObjectHideFlags: 0
