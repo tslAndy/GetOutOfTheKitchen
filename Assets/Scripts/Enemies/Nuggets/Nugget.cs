@@ -83,7 +83,7 @@ namespace Nuggets
                 IcecreamBall nugget = _tempNuggets[i];
                 Vector2 direction = (PlayerSingleton.Instance.Player.position - nugget.transform.position).normalized;
                 nugget.ChangeDirection(direction);
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.2f);
             }
             yield return new WaitForSeconds(3);
             _state = NuggetState.Idle;
