@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 namespace Input
 {
@@ -11,6 +12,7 @@ namespace Input
 
         private Vector2 _moveVector;
         public Vector2 MoveVector {get => _moveVector; private set => _moveVector = value;}
+
 
         private bool _jumping;
         public bool Jumping => _jumping;
@@ -27,6 +29,7 @@ namespace Input
             input.Player.Movement.performed += OnInputPerformed;
             input.Player.Movement.canceled += OnInputCancelled;
 
+
             input.Player.Jumping.started += OnJumpStarted;
             input.Player.Jumping.canceled += OnJumpCancelled;
         }
@@ -36,6 +39,7 @@ namespace Input
             input.Player.Movement.performed -= OnInputPerformed;
             input.Player.Movement.canceled -= OnInputCancelled;
 
+
             input.Player.Jumping.started -= OnJumpStarted;
             input.Player.Jumping.canceled -= OnJumpCancelled;
 
@@ -44,6 +48,7 @@ namespace Input
 
         private void OnInputPerformed(InputAction.CallbackContext value) => _moveVector = value.ReadValue<Vector2>();
         private void OnInputCancelled(InputAction.CallbackContext value) => _moveVector = Vector2.zero;
+
 
         private void OnJumpStarted(InputAction.CallbackContext value) => _jumping = true;
 
