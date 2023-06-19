@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b525faa0d444044876d4d3f81403e5, type: 3}
+  m_Name: Test Dialog
+  m_EditorClassIdentifier: 
+  _dialogs:
+  - _name: Cook
+    _text: So, hi. My name is John, i am 20 and i work at this restarant almoust
+      5 years. My uncle runs it.
+    _choices: []
+  - _name: ???
+    _text: Hello, John. It's very nice to meet you. Tell us more about your fears.
+    _choices: []
+  - _name: John
+    _text: Uh... Fears? Well...
+    _choices:
+    - _text: I usually have a fear about, you know... that food will revenge
+      _dialogs: {fileID: 11400000, guid: 36e9e5d3ca6f64443a7c0b466ffd2d46, type: 2}
+    - _text: Ok. Stop. i don't feel like particapate in this.
+      _dialogs: {fileID: 11400000, guid: b2fb75a492d42bf4fa1ffffe92e514b0, type: 2}
