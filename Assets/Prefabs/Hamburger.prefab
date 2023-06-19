@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6211408245406379036}
   - component: {fileID: 6211408245406379037}
   - component: {fileID: 6211408245406379034}
+  - component: {fileID: 1685509964994371741}
   - component: {fileID: 6211408245406379035}
   m_Layer: 0
   m_Name: Hamburger
@@ -33,7 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6211408245406379036
 SpriteRenderer:
@@ -134,6 +135,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1685509964994371741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6211408245406379032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da33fb984b71e24a88ec262688a7943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTag: PlayerProjectile
+  startHealth: 4
 --- !u!114 &6211408245406379035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,3 +164,4 @@ MonoBehaviour:
   tagScriptable: {fileID: 11400000, guid: ca2f2dfe7722186438208b639bdc64f0, type: 2}
   rb: {fileID: 6211408245406379034}
   coll: {fileID: 6211408245406379037}
+  health: {fileID: 1685509964994371741}

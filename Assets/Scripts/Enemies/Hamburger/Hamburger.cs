@@ -8,6 +8,7 @@ namespace Enemies.Hamburger
     {
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D coll;
+        [SerializeField] private Health health;
 
         private enum HamburgerState
         {
@@ -25,6 +26,12 @@ namespace Enemies.Hamburger
         {
             if (PlayerSingleton.Instance.Player == null)
                 return;
+
+            if (health.HealthAmount <= 0)
+            {
+                DestroyAction(this);
+            }
+
 
             switch (_state)
             {
@@ -83,6 +90,7 @@ namespace Enemies.Hamburger
             _onShelf = _onFloor = _collidedWithPlayer = false;
             _shelfCollider = null;
             _state = HamburgerState.Idle;
+            health.ResetHealth();
         }
 
         public override void OnPoolDestroy()
