@@ -222,7 +222,8 @@ GameObject:
   - component: {fileID: 58029729}
   - component: {fileID: 58029728}
   - component: {fileID: 58029727}
-  m_Layer: 0
+  - component: {fileID: 58029730}
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -372,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2325d7b4689b154c8d9aa3a353498d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
 --- !u!114 &58029729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +387,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OneWayPlatform: {fileID: 0}
+--- !u!114 &58029730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58029722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb32db72e305074b982c57c03a1d904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icecreamBallPrefab: {fileID: 942516573910521615, guid: c2c0db6bfce0a0e4d8504adee324f06b, type: 3}
+  inputHandler: {fileID: 58029728}
+  fireRate: 0.1
 --- !u!1001 &99591133
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -36,10 +36,12 @@ namespace Enemies.Hamburger
                         _state = HamburgerState.Jumping;
                     }
                     break;
+
                 case HamburgerState.Jumping:
                     if (_onFloor)
                         _state = HamburgerState.Running;
                     break;
+
                 case HamburgerState.Running:
                     float direction = Mathf.Sign(PlayerSingleton.Instance.Player.position.x - transform.position.x);
                     rb.velocity = direction > 0 ? HamburgerData.RunRightVector : HamburgerData.RunLeftVector;
@@ -49,6 +51,7 @@ namespace Enemies.Hamburger
                         DestroyAction(this);
                     }
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
