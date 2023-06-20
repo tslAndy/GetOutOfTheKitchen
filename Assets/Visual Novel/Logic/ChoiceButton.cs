@@ -15,14 +15,14 @@ public class ChoiceButton : MonoBehaviour
 
     public Say Say { set => _say = value; }
     public MyDialogs Dialogs { get; private set; }
-    public void Show(MyDialogs.ChoiceElement choiceElement)
+    public void AssignButtonOfChoice(MyDialogs.ChoiceElement choiceElement)
     {
         _buttonText.SetText(choiceElement.Text);
-        Dialogs = choiceElement.Dialogs;
+        Dialogs = choiceElement.Dialogs;                       
         
         _self.onClick.AddListener(() => _say.Choice(this));
     }
 
-    public void Hide() => Destroy(gameObject);
+    public void DestroyButtonOfChoice() => Destroy(gameObject);
 
 }

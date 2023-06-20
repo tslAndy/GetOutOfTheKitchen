@@ -2,20 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 using MyDialogs = Game.Data.Dialogs;
 
 public class Say : MonoBehaviour
 {
-    [SerializeField] private MyDialogs _dialogs;
+    [SerializeField] private MyDialogs _dialog;      // variable of current dialog
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private Choice _choice;
+    [SerializeField] private string _nextSceneName;
 
-    private int _index = 0;
+    private bool _allowSkipping = true;
+
+    private int _index;
 
     private void OnEnable()
     {
-        if (_dialogs != null)
+        if (_dialog != null)
         {
             NextDialog();
         }
@@ -23,21 +27,31 @@ public class Say : MonoBehaviour
 
     public void NextDialog()
     {
-        if (_index == _dialogs.Get.Count) return;
-        _name.SetText(_dialogs.Get[_index].Name);
-        _text.SetText( _dialogs.Get[_index].Text);
-        Debug.Log("Next Text");
-        _index++;
+        if(_allowSkipping)
+        {
+            if (_index == _dialog.Get.Count)
+            {
+                SceneManager.LoadScene(_nextSceneName);   // Loading next scene, if there is no more dialogs
+                return;
+            }
+            _name.SetText(_dialog.Get[_index].Name);
+            _text.SetText(_dialog.Get[_index].Text);
+            Debug.Log("Next Text");
+            CreateChoice();
+            _index++;
+        }
+       
 
-        CreateChoice();
     }
 
     public void CreateChoice()
     {
-        if (_dialogs.Get[_index].Choices.Length != 0)
+        if ( _dialog.Get[_index].Choices.Length != 0)
         {
-            _choice.MajorShow();
-            foreach (MyDialogs.ChoiceElement choiceElement in _dialogs.Get[_index].Choices)
+            _allowSkipping = false;
+
+            _choice.ShowButtonCanvas();
+            foreach (MyDialogs.ChoiceElement choiceElement in _dialog.Get[_index].Choices)
                 _choice.Add(choiceElement, this);    
         }
     }
@@ -45,8 +59,11 @@ public class Say : MonoBehaviour
     public void Choice(ChoiceButton buttonOfchoice)
     {
         _index = 0;
-        _dialogs = buttonOfchoice.Dialogs;
-        buttonOfchoice.Hide();
-        _choice.MajorHide();
+        _dialog = buttonOfchoice.Dialogs;            //Getting new dialog according to the new choice
+        buttonOfchoice.DestroyButtonOfChoice();                    
+        _choice.HideButtonCanvas();
+        _allowSkipping = true;
+        NextDialog();
+        
     }
 }

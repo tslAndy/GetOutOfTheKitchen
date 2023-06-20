@@ -17,7 +17,7 @@ namespace Game.Data
 
             public string Name => _name;
             public string Text => _text;
-            public ChoiceElement[] Choices => _choices;
+            public ChoiceElement[] Choices => _choices;         // Each Dialog (in Dialogs, that are List in Scriptable Obj) can has its own variety of choices 
 
         }
         [System.Serializable]
@@ -27,7 +27,7 @@ namespace Game.Data
             [SerializeField] private Dialogs _dialogs;
 
             public string Text => _text;
-            public Dialogs Dialogs => _dialogs;
+            public Dialogs Dialogs => _dialogs;          // store the dialog, that will be after a certain choice. The dialog assign in inspector 
         }
 
 

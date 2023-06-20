@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogs:
   - _name: Cook
-    _text: So, hi. My name is John, i am 20 and i work at this restarant almoust
+    _text: So, hi. My name is John, i am 28 and i work at this restarant almoust
       5 years. My uncle runs it.
     _choices: []
   - _name: ???
@@ -23,7 +23,7 @@ MonoBehaviour:
   - _name: John
     _text: Uh... Fears? Well...
     _choices:
-    - _text: I usually have a fear about, you know... that food will revenge
+    - _text: Sometimes i have nightmares, that burgers or french fries come to life...
       _dialogs: {fileID: 11400000, guid: 36e9e5d3ca6f64443a7c0b466ffd2d46, type: 2}
     - _text: Ok. Stop. i don't feel like particapate in this.
       _dialogs: {fileID: 11400000, guid: b2fb75a492d42bf4fa1ffffe92e514b0, type: 2}
