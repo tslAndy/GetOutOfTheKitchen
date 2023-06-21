@@ -10,11 +10,13 @@ public class LazerEyes : MonoBehaviour
     public LineRenderer thelineRenderer;
     public Transform lazerPoint;
     Transform m_transform;
+    [SerializeField] private Collider2D[] _CollidersToIgnore;
 
-    private void Start()
+    void Start()
     {
         m_transform = GetComponent<Transform>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -24,12 +26,15 @@ public class LazerEyes : MonoBehaviour
 
     void ShootLazer()
     {
-        Debug.DrawLine(lazerPoint.position, lazerPoint.position + Vector3.left * maxDistance, Color.red);
-        if (Physics2D.Raycast(m_transform.position, - transform.right, maxDistance).collider != null)
+        if (Physics2D.Raycast(m_transform.position, - transform.right, maxDistance).collider != null  )
         {
             _hit = Physics2D.Raycast(m_transform.position, -transform.right, maxDistance);
-            Draw2DLine(lazerPoint.position, _hit.point);
-            Debug.Log("hit smth");
+
+            if(_hit.collider.CompareTag("Player"))
+            {
+                Draw2DLine(lazerPoint.position, _hit.point);
+                Debug.Log("hit smth");
+            }  
         }
         else
         {
