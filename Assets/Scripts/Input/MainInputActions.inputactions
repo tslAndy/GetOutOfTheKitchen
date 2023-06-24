@@ -1,5 +1,5 @@
 {
-    "name": "PlayerInputActions",
+    "name": "MainInputActions",
     "maps": [
         {
             "name": "Player",
@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jumping",
+                    "name": "Jump",
                     "type": "Button",
                     "id": "b895789f-a746-4053-aa4b-a7eb1a124692",
                     "expectedControlType": "Button",
@@ -105,7 +105,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jumping",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
