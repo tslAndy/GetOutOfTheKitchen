@@ -1,4 +1,6 @@
 using System;
+using Other;
+using Player;
 using Pooling;
 using UnityEngine;
 
@@ -8,6 +10,7 @@ namespace Enemies.Hamburger
     {
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D coll;
+        [SerializeField] private Health health;
 
         private enum HamburgerState
         {
@@ -26,6 +29,12 @@ namespace Enemies.Hamburger
             if (PlayerSingleton.Instance.Player == null)
                 return;
 
+            if (health.HealthAmount <= 0)
+            {
+                DestroyAction(this);
+            }
+
+
             switch (_state)
             {
                 case HamburgerState.Idle:
@@ -36,10 +45,12 @@ namespace Enemies.Hamburger
                         _state = HamburgerState.Jumping;
                     }
                     break;
+
                 case HamburgerState.Jumping:
                     if (_onFloor)
                         _state = HamburgerState.Running;
                     break;
+
                 case HamburgerState.Running:
                     float direction = Mathf.Sign(PlayerSingleton.Instance.Player.position.x - transform.position.x);
                     rb.velocity = direction > 0 ? HamburgerData.RunRightVector : HamburgerData.RunLeftVector;
@@ -49,6 +60,7 @@ namespace Enemies.Hamburger
                         DestroyAction(this);
                     }
                     break;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -80,6 +92,7 @@ namespace Enemies.Hamburger
             _onShelf = _onFloor = _collidedWithPlayer = false;
             _shelfCollider = null;
             _state = HamburgerState.Idle;
+            health.ResetHealth();
         }
 
         public override void OnPoolDestroy()
