@@ -9,6 +9,10 @@ public class DonutStateManager : MonoBehaviour
     [HideInInspector] public DonutLaserState donutLaserState = new();
     [HideInInspector] public DonutExitState donutExitState = new();
 
+    public Transform topPoint;
+    public Transform sidePoint;
+    public float speedInAttack;
+
     void Start()
     {
         currentState = donutEnterState;
