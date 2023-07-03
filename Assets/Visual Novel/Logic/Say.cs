@@ -34,6 +34,8 @@ public class Say : MonoBehaviour
                 SceneManager.LoadScene(_nextSceneName);   // Loading next scene, if there is no more dialogs
                 return;
             }
+            AudioManager.Instance.PlaySFX("Wet Click");              // Audio Manager Test
+
             _name.SetText(_dialog.Get[_index].Name);
             _text.SetText(_dialog.Get[_index].Text);
             Debug.Log("Next Text");
