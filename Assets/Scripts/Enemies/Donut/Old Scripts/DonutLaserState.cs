@@ -10,6 +10,7 @@ public class DonutLaserState : DonutBaseState
     private int _currentPosition;
     private float _speed;
     private int amountOfRounds = 0;
+
     public override void EnterState(DonutStateManager context)
     {
         _speed = context.speedInAttack;
@@ -25,7 +26,7 @@ public class DonutLaserState : DonutBaseState
            
             case 0:
                 context.transform.position = Vector2.MoveTowards(_zeroStop.position, _firstStop.position, _speed * Time.deltaTime);
-                if (context.transform.position == _firstStop.position)
+                if (Vector3.Distance(context.transform.position, _firstStop.position) <= 0.1f)
                 {
                     _currentPosition = 1;   
                     Debug.Log(_currentPosition);
