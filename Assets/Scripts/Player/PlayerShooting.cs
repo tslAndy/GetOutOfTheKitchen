@@ -21,15 +21,18 @@ namespace Player
 
         public void Shoot(Vector2 direction)
         {
-            float shotTime = _lastShotTime + fireRate;
-            if (Time.time < shotTime)
-                return;
+            if(GameManager.instance.gameState == GameManager.GameState.Paused)
+            {
+                float shotTime = _lastShotTime + fireRate;
+                if (Time.time < shotTime)
+                    return;
 
-            _lastShotTime = shotTime;
+                _lastShotTime = shotTime;
 
-            IcecreamBall bullet = _bulletPoolMemory.GetPoolObject(bulletPrefab);
-            bullet.transform.position = transform.position;
-            bullet.ChangeDirection(direction);
+                IcecreamBall bullet = _bulletPoolMemory.GetPoolObject(bulletPrefab);
+                bullet.transform.position = transform.position;
+                bullet.ChangeDirection(direction);
+            } 
         }
     }
 }
