@@ -9,7 +9,7 @@ namespace Player
         [SerializeField] private PlayerMovement playerMovement;
         [SerializeField] private PlayerShooting playerShooting;
         [SerializeField] private Camera cam;
-        
+
         private MainInputActions _inputActions;
         private Vector2 _moveVector;
 
@@ -33,7 +33,7 @@ namespace Player
             _inputActions.Player.Jump.started += OnJumpStarted;
             _inputActions.Player.Shoot.started += OnShootStarted;
         }
- 
+
         private void OnDisable()
         {
             _inputActions.Player.Movement.performed -= OnMovementPerformed;
@@ -41,7 +41,7 @@ namespace Player
 
             _inputActions.Player.Jump.started -= OnJumpStarted;
             _inputActions.Player.Shoot.started += OnShootStarted;
-            
+
             _inputActions.Disable();
         }
 
@@ -53,7 +53,6 @@ namespace Player
         {
             Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
             Vector2 direction = mousePosition - (Vector2) transform.position;
-            playerShooting.Shoot(direction);
         }
     }
 }

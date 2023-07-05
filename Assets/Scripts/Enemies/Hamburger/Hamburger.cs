@@ -1,111 +1,65 @@
-using System;
-using Other;
-using Player;
-using Pooling;
 using UnityEngine;
+using Player;
 
 namespace Enemies.Hamburger
 {
-    public class Hamburger : PoolObject<Hamburger>
+    public class Hamburger : MonoBehaviour
     {
+        [SerializeField] private float jumpSpeed, runSpeed;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Collider2D coll;
-        [SerializeField] private Health health;
 
-        private enum HamburgerState
+        private State _state;
+        private Collider2D _shelfColl;
+        private bool _collidedWithFloor;
+        private float direction;
+
+        private enum State
         {
-            Idle,
+            Falling,
             Jumping,
+            Air,
             Running
         }
 
-        private HamburgerState _state;
-        private bool _onShelf, _onFloor, _collidedWithPlayer;
-        private bool _destroyOnCollision;
-        private Collider2D _shelfCollider;
-
         private void Update()
         {
-            if (PlayerSingleton.Instance.Player == null)
-                return;
-
-            if (health.HealthAmount <= 0)
-            {
-                DestroyAction(this);
-            }
-
-
             switch (_state)
             {
-                case HamburgerState.Idle:
-                    if (_onShelf)
+                case State.Falling:
+                    if (_shelfColl != null)
                     {
-                        rb.velocity = HamburgerData.JumpVector;
-                        Physics2D.IgnoreCollision(coll, _shelfCollider);
-                        _state = HamburgerState.Jumping;
+                        _state = State.Jumping;
                     }
                     break;
 
-                case HamburgerState.Jumping:
-                    if (_onFloor)
-                        _state = HamburgerState.Running;
+                case State.Jumping:
+                    rb.velocity = Vector2.up * jumpSpeed;
+                    Physics2D.IgnoreCollision(coll, _shelfColl);
+                    _state = State.Air;
                     break;
 
-                case HamburgerState.Running:
-                    float direction = Mathf.Sign(PlayerSingleton.Instance.Player.position.x - transform.position.x);
-                    rb.velocity = direction > 0 ? HamburgerData.RunRightVector : HamburgerData.RunLeftVector;
-
-                    if (_collidedWithPlayer)
+                case State.Air:
+                    if (_collidedWithFloor)
                     {
-                        DestroyAction(this);
+                        float playerX = PlayerSingleton.Instance.Player.position.x;
+                        direction = Mathf.Sign(playerX - transform.position.x);
+                        _state = State.Running;
                     }
                     break;
 
-                default:
-                    throw new ArgumentOutOfRangeException();
+                case State.Running:
+                    rb.velocity = Vector2.right * direction * runSpeed;
+                    break;
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (col.gameObject.CompareTag("Floor"))
-                _onFloor = true;
-            else if (col.gameObject.CompareTag("Shelf"))
-            {
-                _onShelf = true;
-                _shelfCollider = col.collider;
-            }
-            else if (col.gameObject.CompareTag("Player"))
-            {
-                if (_destroyOnCollision)
-                    Destroy(gameObject);
-                else
-                    _collidedWithPlayer = true;
-            }
-
+            if (collision.gameObject.CompareTag("Floor"))
+                _collidedWithFloor = true;
+            else if (collision.gameObject.CompareTag("Shelf"))
+                _shelfColl = collision.collider;
         }
-
-        public override void BeforeReturnToPool()
-        {
-            rb.velocity = Vector2.zero;
-            Physics2D.IgnoreCollision(coll, _shelfCollider, false);
-            _onShelf = _onFloor = _collidedWithPlayer = false;
-            _shelfCollider = null;
-            _state = HamburgerState.Idle;
-            health.ResetHealth();
-        }
-
-        public override void OnPoolDestroy()
-        {
-            _destroyOnCollision = true;
-        }
-    }
-
-    public static class HamburgerData
-    {
-        public static readonly float RunSpeed = 5f, JumpSpeed = 8f;
-        public static readonly Vector2 JumpVector = Vector2.up * JumpSpeed;
-        public static readonly Vector2 RunRightVector = Vector2.right * RunSpeed;
-        public static readonly Vector2 RunLeftVector = Vector2.left * RunSpeed;
     }
 }

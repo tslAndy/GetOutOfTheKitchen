@@ -1,35 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pooling;
-using Enemies.Icecream;
 using Player;
 
-namespace Salat
+namespace Enemies.Salat
 {
-    public class Salat : Icecream
+    public class Salat : MonoBehaviour
     {
-        [SerializeField] private Transform attackFromTransform;
+        [SerializeField] private float shootRate, projectileSpeed;
+        [SerializeField] private Transform shootStartTransform;
+        [SerializeField] Projectile[] projectiles;
 
-        protected override IEnumerator AttackCoroutine()
+        private float _lastShootTime = 0;
+        private int _lastProjectileIndex = 0;
+
+        private void Update()
         {
-            Transform playerTransform = PlayerSingleton.Instance.Player;
-            ChangeIcecreamBallsState(false);
-            InitTempBalls();
-
-            for (int i = 0; i < tempIcecreamBalls.Length; i++)
+            if (Time.time >= _lastShootTime + shootRate && _lastProjectileIndex < projectiles.Length)
             {
-                Vector2 direction = (playerTransform.position - transform.position).normalized;
-                transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
-                IcecreamBall icecreamBall = tempIcecreamBalls[i];
-                icecreamBall.transform.position = attackFromTransform.position;
-                icecreamBall.ChangeDirection(direction);
-                yield return new WaitForSeconds(timeBetweenAttacks);
+                Shoot();
             }
-            ChangeIcecreamBallsState(true);
-            CheckDeath();
+        }
 
+        private void Shoot()
+        {
+            Projectile projectile = projectiles[_lastProjectileIndex];
+            projectile.transform.position = shootStartTransform.position;
+            Vector2 direction = (PlayerSingleton.Instance.transform.position - projectile.transform.position).normalized;
+
+            Debug.Log(direction);
+            projectile.SetVelocity(direction * projectileSpeed);
+
+            _lastProjectileIndex++;
+            _lastShootTime = Time.time;
         }
     }
 }
-
