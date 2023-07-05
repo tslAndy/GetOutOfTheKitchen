@@ -5,8 +5,6 @@ using Unity.VisualScripting;
 
 public class GoQuitLogic : MonoBehaviour
 {
-    [SerializeField] private Slider SfxSlider;
-    [SerializeField] private Slider MusicSlider;
     [SerializeField] private GameObject SettingsMenu;
     [Header("Only for Main Menu")]
     [SerializeField] private GameObject MainMenu;

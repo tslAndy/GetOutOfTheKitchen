@@ -21,7 +21,7 @@ namespace Player
 
         public void Shoot(Vector2 direction)
         {
-            if(GameManager.instance.gameState == GameManager.GameState.Paused)
+            if(GameManager.instance.gameState == GameManager.GameState.Continuing)
             {
                 float shotTime = _lastShotTime + fireRate;
                 if (Time.time < shotTime)
