@@ -53,6 +53,7 @@ namespace Player
         {
             Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
             Vector2 direction = mousePosition - (Vector2) transform.position;
+            playerShooting.Shoot(direction);
         }
     }
 }
