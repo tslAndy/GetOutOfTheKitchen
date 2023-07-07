@@ -1,38 +1,23 @@
 using System;
 using UnityEngine;
-using Enemies.Icecream;
-using Pooling;
 
 
 namespace Player
 {
     public class PlayerShooting : MonoBehaviour
     {
-        [SerializeField] private IcecreamBall bulletPrefab;
-        [SerializeField] private float fireRate;
-        
-        private PoolMemory<IcecreamBall> _bulletPoolMemory;
-        private float _lastShotTime;
+        [SerializeField] private Projectile projectilePrefab;
+        [SerializeField] private float fireRate, projectileSpeed;
 
-        private void Start()
-        {
-            _bulletPoolMemory = PoolsManager.Instance.GetPoolMemory<IcecreamBall>();
-        }
+        private float _lastShotTime;
 
         public void Shoot(Vector2 direction)
         {
-            if(GameManager.instance.gameState == GameManager.GameState.Continuing)
-            {
-                float shotTime = _lastShotTime + fireRate;
-                if (Time.time < shotTime)
-                    return;
+            if (Time.time < _lastShotTime + fireRate)
+                return;
 
-                _lastShotTime = shotTime;
-
-                IcecreamBall bullet = _bulletPoolMemory.GetPoolObject(bulletPrefab);
-                bullet.transform.position = transform.position;
-                bullet.ChangeDirection(direction);
-            } 
+            Projectile projectile = Instantiate(projectilePrefab, transform);
+            projectile.SetVelocity(direction * projectileSpeed);
         }
     }
 }
