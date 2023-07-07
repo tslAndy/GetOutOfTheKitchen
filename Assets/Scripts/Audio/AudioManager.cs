@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource MusicSource;
     public AudioSource SFXSource;
     [Header("----- Audio Clips -----")]
-    public List<AudioClip> Clips;
+    [SerializeField] private List<AudioClip> Clips;
     [HideInInspector] public Dictionary<string, AudioClip> AudioClips = new Dictionary<string, AudioClip>();
 
     private void Awake()
