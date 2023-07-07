@@ -7,6 +7,7 @@ TagManager:
   - Shelf
   - Floor
   - OneWayPlatform
+  - Bottle
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Enemies
   - Player
   - PlayerProjectiles
-  - 
-  - 
+  - Bottle
+  - Countertop
   - 
   - 
   - 

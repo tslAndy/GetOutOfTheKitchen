@@ -45,21 +45,6 @@ public class TestDonut : MonoBehaviour
 
                 break;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             case State.FlyingToPoints:
                 if (_iteration == iterations)
                 {

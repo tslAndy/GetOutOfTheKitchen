@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BottleStateManager : MonoBehaviour
+public class BottleStates : MonoBehaviour
 {
     public float forceOfTheJump;
     BottleBaseState currentState;

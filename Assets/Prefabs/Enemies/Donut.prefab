@@ -273,7 +273,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 24.804688}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &811943790157540611
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_Size: {x: 40, y: 24.804688}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &811943790958348591
@@ -480,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 811943790958348589}
-  - component: {fileID: 811943790958348588}
+  - component: {fileID: 3685660172687768597}
   m_Layer: 0
   m_Name: Donut
   m_TagString: Untagged
@@ -506,9 +506,9 @@ Transform:
   - {fileID: 811943789959880283}
   - {fileID: 811943790157540608}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &811943790958348588
+--- !u!114 &3685660172687768597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -517,9 +517,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 811943790958348591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a167aa606d7c50042be60a1e66b3878a, type: 3}
+  m_Script: {fileID: 11500000, guid: 103459d86bb561743b6d565379a6a9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topPoint: {fileID: 0}
-  sidePoint: {fileID: 0}
-  speedInAttack: 1
+  cam: {fileID: 0}
+  points: []
+  iterations: 0
+  speed: 0
