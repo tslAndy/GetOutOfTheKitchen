@@ -6,13 +6,10 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
 
-    private void Start()
-    {
-        transform.SetParent(null);
-    }
-
     public void SetVelocity(Vector2 velocity)
     {
+        if (transform.parent != null)
+            transform.SetParent(null);
         rb.velocity = velocity;
     }
 

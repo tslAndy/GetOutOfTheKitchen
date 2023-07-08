@@ -21,8 +21,18 @@ namespace Other
             {
                 _currentHealth -= 1;
                 if (_currentHealth <= 0)
-                    Destroy(gameObject);
+                {
+                    Die();
+                }
             }
+        }
+
+        private void Die()
+        {
+            foreach (Transform child in transform)
+                Destroy(child.gameObject);
+
+            Destroy(gameObject);
         }
     }
 }

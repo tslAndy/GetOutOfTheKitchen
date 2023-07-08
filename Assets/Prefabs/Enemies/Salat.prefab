@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8053098839124807077}
   - component: {fileID: 8053098839124807079}
   - component: {fileID: 7565718793443160039}
+  - component: {fileID: 8029573719165314577}
+  - component: {fileID: 2749074047262107571}
   m_Layer: 7
   m_Name: Salat
   m_TagString: Untagged
@@ -103,8 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a626538586cae46a1d356a3edafdd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootRate: 0.5
+  rb: {fileID: 8029573719165314577}
+  shootRate: 1
   projectileSpeed: 10
+  goingAwaySpeed: 6
   shootStartTransform: {fileID: 8053098840047540064}
   projectiles:
   - {fileID: 2305478994716302063}
@@ -137,6 +141,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8029573719165314577
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053098839124807075}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &2749074047262107571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8053098839124807075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da33fb984b71e24a88ec262688a7943, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTag: PlayerBullet
+  startHealth: 4
 --- !u!1 &8053098840047540065
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8053098840047540065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.61, y: 0, z: 0}
+  m_LocalPosition: {x: -0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
