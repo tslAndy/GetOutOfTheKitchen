@@ -20,9 +20,9 @@ namespace Other
             if (collision.gameObject.CompareTag(damageTag))
             {
                 _currentHealth -= 1;
+                if (_currentHealth <= 0)
+                    Destroy(gameObject);
             }
         }
-
-        public void ResetHealth() => _currentHealth = startHealth;
     }
 }

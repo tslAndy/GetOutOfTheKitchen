@@ -8,16 +8,36 @@ namespace Enemies.Icecream
 {
     public class Icecream : MonoBehaviour
     {
+        [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Projectile projectilePrefab;
-        [SerializeField] private int projectilesAmount;
-        [SerializeField] private float spawnRate, projectileSpeed, angleBetweenProjectiles;
+        [SerializeField] private int projectilesAmount, attacksAmount;
+        [SerializeField] private float goingAwaySpeed, spawnRate, projectileSpeed, angleBetweenProjectiles;
 
         private float _lastSpawnTime;
+        private int _attacksDone;
+        private State _state;
+
+        private enum State
+        {
+            Shooting,
+            GoingAway
+        }
 
         private void Update()
         {
-            if (Time.time >= _lastSpawnTime + spawnRate)
-                Shoot();
+            switch (_state)
+            {
+                case State.Shooting:
+                    if (_attacksDone == attacksAmount)
+                        _state = State.GoingAway;
+                    else if (Time.time >= _lastSpawnTime + spawnRate)
+                        Shoot();
+                    break;
+
+                case State.GoingAway:
+                    rb.velocity = Vector2.right * goingAwaySpeed;
+                    break;
+            }
         }
 
         private void Shoot()
@@ -32,7 +52,14 @@ namespace Enemies.Icecream
                 Projectile projectile = Instantiate(projectilePrefab, transform);
                 projectile.SetVelocity(velocity);
             }
+            _attacksDone++;
             _lastSpawnTime = Time.time;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Wall"))
+                Destroy(gameObject);
         }
     }
 }

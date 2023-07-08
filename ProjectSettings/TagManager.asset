@@ -7,6 +7,8 @@ TagManager:
   - Shelf
   - Floor
   - OneWayPlatform
+  - PlayerBullet
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -14,10 +16,10 @@ TagManager:
   - 
   - Water
   - UI
-  - Projectiles
-  - Enemies
   - Player
-  - PlayerProjectiles
+  - Enemy
+  - 
+  - 
   - 
   - 
   - 
