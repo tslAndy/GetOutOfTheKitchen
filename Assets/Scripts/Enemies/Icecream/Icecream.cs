@@ -11,7 +11,7 @@ namespace Enemies.Icecream
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Projectile projectilePrefab;
         [SerializeField] private int projectilesAmount, attacksAmount;
-        [SerializeField] private float goingAwaySpeed, spawnRate, projectileSpeed, angleBetweenProjectiles;
+        [SerializeField] private float xDistanceToShoot, speed, spawnRate, projectileSpeed, angleBetweenProjectiles;
 
         private float _lastSpawnTime;
         private int _attacksDone;
@@ -19,6 +19,7 @@ namespace Enemies.Icecream
 
         private enum State
         {
+            FlyingToPlayer,
             Shooting,
             GoingAway
         }
@@ -27,6 +28,18 @@ namespace Enemies.Icecream
         {
             switch (_state)
             {
+                case State.FlyingToPlayer:
+                    float posDiff = PlayerSingleton.Instance.Player.position.x  - transform.position.x;
+                    if (Mathf.Abs(posDiff) <= xDistanceToShoot)
+                    {
+                        rb.velocity = Vector2.zero;
+                        _state = State.Shooting;
+                        break;
+                    }
+
+                    rb.velocity = Vector2.right * speed * Mathf.Sign(posDiff);
+                    break;
+
                 case State.Shooting:
                     if (_attacksDone == attacksAmount)
                         _state = State.GoingAway;
@@ -35,7 +48,7 @@ namespace Enemies.Icecream
                     break;
 
                 case State.GoingAway:
-                    rb.velocity = Vector2.right * goingAwaySpeed;
+                    rb.velocity = Vector2.right * speed;
                     break;
             }
         }
