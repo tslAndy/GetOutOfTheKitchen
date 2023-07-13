@@ -7,8 +7,9 @@ namespace Player
     public class InputHandler : MonoBehaviour
     {
         [SerializeField] private PlayerMovement playerMovement;
-        [SerializeField] private PlayerShooting playerShooting;
-        [SerializeField] private Camera cam;
+        [SerializeField] private PlayerShooting playerShooting;          // is now on the "Weapon pivot point " object in Player
+        [SerializeField] private PupilsMovement pupilsMovement;          // On the " Eyes " objects in Player 
+        [SerializeField] private Camera cam; 
 
         private MainInputActions _inputActions;
         private Vector2 _moveVector;
@@ -21,6 +22,11 @@ namespace Player
         private void Update()
         {
             playerMovement.Move(_moveVector);
+
+            Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
+            Vector2 direction = mousePosition - (Vector2)transform.position;
+            pupilsMovement.EyesFollowMouse(direction);
+
         }
 
         private void OnEnable()
@@ -53,6 +59,7 @@ namespace Player
         {
             Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
             Vector2 direction = mousePosition - (Vector2) transform.position;
+            playerShooting.RotateWeapon(direction);
             playerShooting.Shoot(direction);
         }
     }

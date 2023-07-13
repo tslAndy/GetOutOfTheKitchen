@@ -46,6 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Player eyes
+    uniqueID: 2537753921
+    locked: 0
+  - name: Weapon
+    uniqueID: 3286630263
+    locked: 0
   - name: Enemies
     uniqueID: 4015246629
     locked: 0
