@@ -6,6 +6,9 @@ namespace Other
     {
         [SerializeField] private string damageTag;
         [SerializeField] private int startHealth;
+        [SerializeField] private int calories;
+
+        [HideInInspector] public int Calories => calories;
 
         private int _currentHealth;
         public int HealthAmount => _currentHealth;
@@ -31,6 +34,8 @@ namespace Other
         {
             foreach (Transform child in transform)
                 Destroy(child.gameObject);
+
+            CaloriesCounterSingleton.Instance.AddCalories(calories);
 
             Destroy(gameObject);
         }

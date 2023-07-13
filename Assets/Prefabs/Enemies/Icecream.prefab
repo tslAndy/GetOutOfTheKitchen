@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTag: PlayerBullet
   startHealth: 2
+  calories: 100
 --- !u!50 &8088055487337989986
 Rigidbody2D:
   serializedVersion: 4
