@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -66,9 +67,9 @@ public class TopBlockStateManager: MonoBehaviour
         _currentState.Enter(this);                                     // Enter into new current State
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Player"))   // THIS IS NOT WORKING WITH FLOOR FOR SOME REASON
+        if(other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Player"))
         {
             _currentState.OnCollisonEnter2D(this);
             bottomPosition = transform.position;
