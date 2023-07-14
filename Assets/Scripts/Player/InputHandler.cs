@@ -6,8 +6,7 @@ namespace Player
 {
     public class InputHandler : MonoBehaviour
     {
-        [SerializeField] private PlayerMovement playerMovement;
-        [SerializeField] private PlayerShooting playerShooting;
+        [SerializeField] private PlayerScripts player;
         [SerializeField] private Camera cam;
 
         private MainInputActions _inputActions;
@@ -20,7 +19,7 @@ namespace Player
 
         private void Update()
         {
-            playerMovement.Move(_moveVector);
+            player.Movement.Move(_moveVector);
         }
 
         private void OnEnable()
@@ -47,13 +46,13 @@ namespace Player
 
         private void OnMovementPerformed(InputAction.CallbackContext value) => _moveVector = value.ReadValue<Vector2>();
         private void OnMovementCanceled(InputAction.CallbackContext value) => _moveVector = Vector2.zero;
-        private void OnJumpStarted(InputAction.CallbackContext value) => playerMovement.Jump();
+        private void OnJumpStarted(InputAction.CallbackContext value) => player.Movement.Jump();
 
         private void OnShootStarted(InputAction.CallbackContext value)
         {
             Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
             Vector2 direction = (mousePosition - (Vector2) transform.position).normalized;
-            playerShooting.CurrentWeapon.Attack(direction);
+            player.CurrentWeapon.Attack(direction);
         }
     }
 }

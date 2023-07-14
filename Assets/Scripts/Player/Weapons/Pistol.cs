@@ -9,6 +9,7 @@ public class Pistol : Weapon
 
     private float _lastShotTime;
 
+
     public override void Attack(Vector2 direction)
     {
         if (Time.time < _lastShotTime + fireRate)
