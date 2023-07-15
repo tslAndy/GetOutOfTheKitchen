@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Pistol", menuName = "Weapons")]
+[CreateAssetMenu(fileName = "Weapons", menuName = "Pistol")]
 public class Pistol : Weapon
 {
     [SerializeField] private Projectile projectilePrefab;
@@ -17,8 +17,4 @@ public class Pistol : Weapon
         projectile.SetVelocity(direction * projectileSpeed);
     }
 
-    public override void RotateWeapon(Vector2 direction)
-    {
-        transform.up = direction;
-    }
 }
