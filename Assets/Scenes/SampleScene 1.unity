@@ -250,6 +250,8 @@ GameObject:
   - component: {fileID: 58029728}
   - component: {fileID: 58029732}
   - component: {fileID: 58029727}
+  - component: {fileID: 58029734}
+  - component: {fileID: 58029733}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -428,6 +430,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 58029727}
   weapon: {fileID: 11400000, guid: 719fb5705d8ac2e4cb39d4d7726cbb49, type: 2}
+--- !u!114 &58029733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58029722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7c65ec5e0a93c4abff246afbd6f11f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerItemManager: {fileID: 58029734}
+  weaponToEquip: {fileID: 11400000, guid: 719fb5705d8ac2e4cb39d4d7726cbb49, type: 2}
+--- !u!114 &58029734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58029722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 686e42fa6c082b542814739f5f83b24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 58029732}
 --- !u!1 &225991498
 GameObject:
   m_ObjectHideFlags: 0
