@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapons", menuName = "Pistol")]
+[CreateAssetMenu(menuName = "Weapons/Pistol")]
 public class Pistol : Weapon
 {
     [SerializeField] private Projectile projectilePrefab;

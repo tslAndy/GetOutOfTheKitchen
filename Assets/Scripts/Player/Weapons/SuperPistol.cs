@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Weapons", menuName = "SuperPistol")]
+[CreateAssetMenu(menuName = "Weapons/Super pistol")]
 public class SuperPistol : Weapon
 {
     [SerializeField] private Projectile projectilePrefab;
