@@ -2,59 +2,96 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
+using Unity.VisualScripting;
 
 namespace Enemies.Salat
 {
     public class Salat : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;
-        [SerializeField] private float shootRate, projectileSpeed, goingAwaySpeed;
+        [SerializeField] private float shootRate, projectileActivationDelay, projectileSpeed, moveSpeed;
         [SerializeField] private Transform shootStartTransform;
         [SerializeField] Projectile[] projectiles;
 
         private float _lastShootTime = 0;
         private int _lastProjectileIndex = 0;
         private State _state;
+        private Transform _pointToStartAttack;
 
         private enum State
         {
-            Shooting,
-            GoingAway
+            GoingToPoint,
+            Refilling,
+            WaitingForRefill,
+            Attacking
+        }
+
+        private void Start()
+        {
+            _pointToStartAttack = GameObject.Find("PointToStartAttack").transform;
         }
 
         private void Update()
         {
             switch (_state)
             {
-                case State.Shooting:
-                    if (_lastProjectileIndex >= projectiles.Length)
-                        _state = State.GoingAway;
-                    else if (Time.time >= _lastShootTime + shootRate)
-                        Shoot();
+                case State.GoingToPoint:
+                    float xDistance = transform.position.x - _pointToStartAttack.position.x;
+                    if (Mathf.Abs(xDistance) < 0.1f)
+                    {
+                        _state = State.Refilling;
+                        rb.velocity = Vector2.zero;
+                    }
+                    else
+                        rb.velocity = Vector2.left * moveSpeed;
                     break;
 
-                case State.GoingAway:
-                    rb.velocity = Vector2.right * goingAwaySpeed;
+                case State.Refilling:
+                    StartCoroutine(RefillingCoroutine());
+                    break;
+
+                case State.WaitingForRefill:
+                    break;
+
+                case State.Attacking:
+                    Shoot();
+                    break;
+
+                default:
                     break;
             }
         }
 
+        private IEnumerator RefillingCoroutine()
+        {
+            _state = State.WaitingForRefill;
+            for (int i = 0; i < projectiles.Length; i++)
+            {
+                projectiles[i].gameObject.SetActive(true);
+                yield return new WaitForSeconds(projectileActivationDelay);
+            }
+            _state = State.Attacking;
+        }
+
         private void Shoot()
         {
-            Projectile projectile = projectiles[_lastProjectileIndex];
-            projectile.transform.position = shootStartTransform.position;
-            Vector2 direction = (PlayerSingleton.Instance.transform.position - projectile.transform.position).normalized;
+            if (Time.time < _lastShootTime + shootRate)
+                return;
 
-            projectile.SetVelocity(direction * projectileSpeed);
+            Projectile projectilePrefab = projectiles[_lastProjectileIndex];
+            Projectile projectile = Instantiate(projectilePrefab, _pointToStartAttack);
+            projectilePrefab.gameObject.SetActive(false);
+
+            projectile.SetVelocity(Vector2.left * projectileSpeed);
 
             _lastProjectileIndex++;
             _lastShootTime = Time.time;
-        }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Wall"))
-                Destroy(gameObject);
+            if (_lastProjectileIndex == projectiles.Length)
+            {
+                _state = State.Refilling;
+                _lastProjectileIndex = 0;
+            }
         }
     }
 }

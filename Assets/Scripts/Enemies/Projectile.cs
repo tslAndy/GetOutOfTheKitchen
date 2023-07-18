@@ -5,9 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Collider2D coll;
 
     public void SetVelocity(Vector2 velocity)
     {
+        coll.enabled = true;
         if (transform.parent != null)
             transform.SetParent(null);
         rb.velocity = velocity;

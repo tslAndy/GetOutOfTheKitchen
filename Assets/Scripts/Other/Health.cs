@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Other
 {
@@ -7,6 +8,7 @@ namespace Other
         [SerializeField] private string damageTag;
         [SerializeField] private int startHealth;
         [SerializeField] private int calories;
+        [SerializeField] private Slider healthSlider;
 
         [HideInInspector] public int Calories => calories;
 
@@ -16,6 +18,7 @@ namespace Other
         private void Awake()
         {
             _currentHealth = startHealth;
+            healthSlider.value = 1;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -23,6 +26,7 @@ namespace Other
             if (collision.gameObject.CompareTag(damageTag))
             {
                 _currentHealth -= 1;
+                healthSlider.value = _currentHealth / (float) startHealth;
                 if (_currentHealth <= 0)
                 {
                     Die();
