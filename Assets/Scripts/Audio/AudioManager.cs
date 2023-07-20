@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+            Destroy(Instance);
         Instance = this;
         foreach(var clip in Clips)
         {

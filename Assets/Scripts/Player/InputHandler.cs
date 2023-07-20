@@ -50,10 +50,13 @@ namespace Player
 
         private void OnShootStarted(InputAction.CallbackContext value)
         {
-            Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
-            Vector2 direction = (mousePosition - (Vector2) transform.position).normalized;
-            player.CurrentWeapon.Attack(direction, transform);
-            //player.CurrentWeapon.RotateWeapon(direction);
+            if(GameManager.instance.gameState == GameManager.GameState.Continuing)
+            {
+                Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
+                Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+                player.CurrentWeapon.Attack(direction, transform);
+                //player.CurrentWeapon.RotateWeapon(direction);
+            }
         }
     }
 }
