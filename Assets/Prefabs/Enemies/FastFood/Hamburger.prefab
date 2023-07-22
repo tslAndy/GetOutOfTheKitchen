@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4015171223264180595}
   - component: {fileID: 4015171223264180594}
   - component: {fileID: 183770316858189060}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Hamburger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,3 +166,4 @@ MonoBehaviour:
   damageTag: PlayerBullet
   startHealth: 3
   calories: 500
+  healthSlider: {fileID: 0}

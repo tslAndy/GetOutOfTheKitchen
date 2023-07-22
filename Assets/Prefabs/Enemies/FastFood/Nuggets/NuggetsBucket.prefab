@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3975789072991279301}
   - component: {fileID: 3975789072991279300}
   - component: {fileID: 3975789072991279303}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: NuggetsBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}

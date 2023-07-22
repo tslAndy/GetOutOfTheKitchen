@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5268960404228458465}
   - component: {fileID: 5268960404228458464}
   - component: {fileID: 5268960404228458467}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: NuggetProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

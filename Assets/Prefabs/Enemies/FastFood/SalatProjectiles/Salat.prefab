@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4287702712847187045}
   - component: {fileID: 4287702712847187044}
   - component: {fileID: 4287702712847187035}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Salat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,6 +175,10 @@ PrefabInstance:
       value: Cucumber
       objectReference: {fileID: 0}
     - target: {fileID: 5389745527729942457, guid: 1e1289a80945e474caf965f3237b2a4b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5389745527729942457, guid: 1e1289a80945e474caf965f3237b2a4b, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -252,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 1610464270430000391, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
       propertyPath: m_Name
       value: Tomato
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610464270430000391, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1610464270430000391, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
       propertyPath: m_IsActive
@@ -376,6 +384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootFrom
       objectReference: {fileID: 0}
+    - target: {fileID: 7888475999670376503, guid: 8c5b2dd3afda45440b03552c91440221, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c5b2dd3afda45440b03552c91440221, type: 3}
@@ -395,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 1398730571140868033, guid: aae4a3d493556ab49a45dc9427a3404a, type: 3}
       propertyPath: m_Name
       value: Egg
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398730571140868033, guid: aae4a3d493556ab49a45dc9427a3404a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1398730571140868033, guid: aae4a3d493556ab49a45dc9427a3404a, type: 3}
       propertyPath: m_IsActive
@@ -518,6 +534,10 @@ PrefabInstance:
     - target: {fileID: 4188082781605426028, guid: bf1972b86d064e54a838c616e5700ac1, type: 3}
       propertyPath: m_Name
       value: Onion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188082781605426028, guid: bf1972b86d064e54a838c616e5700ac1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4188082781605426028, guid: bf1972b86d064e54a838c616e5700ac1, type: 3}
       propertyPath: m_IsActive

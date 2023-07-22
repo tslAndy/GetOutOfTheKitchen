@@ -10,13 +10,16 @@ public class Pistol : Weapon
 
     private void OnEnable()
     {
-        _lastShotTime = 0f;
+        _lastShotTime = 0;
     }
 
     public override void Attack(Vector2 direction, Transform spawnTransform)
     {
         if (Time.time < _lastShotTime + fireRate)
+        {
+            Debug.Log("not enough time");
             return;
+        }
 
         Projectile projectile = Instantiate(projectilePrefab, spawnTransform);
         projectile.SetVelocity(direction * projectileSpeed);
