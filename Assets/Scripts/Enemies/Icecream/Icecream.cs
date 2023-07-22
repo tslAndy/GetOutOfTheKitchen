@@ -9,6 +9,7 @@ namespace Enemies.Icecream
     public class Icecream : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Transform spawnTransform;
         [SerializeField] private float speed, spawnRate, projectileSpeed, angleBetweenProjectiles;
         [SerializeField] private Projectile[] projectiles;
 
@@ -32,7 +33,7 @@ namespace Enemies.Icecream
             switch (_state)
             {
                 case State.FlyingToPoint:
-                    float posDiff = _pointToStartAttack.position.x  - transform.position.x;
+                    float posDiff = _pointToStartAttack.position.x - transform.position.x;
                     if (Mathf.Abs(posDiff) <= 0.1f)
                     {
                         rb.velocity = Vector2.zero;
@@ -60,7 +61,7 @@ namespace Enemies.Icecream
             {
                 Vector2 velocity = (direction > 0) ? Vector2.right : Vector2.left;
                 velocity = velocity.Rotate((centerIndex - i) * angleBetweenProjectiles) * projectileSpeed;
-                Projectile projectile = Instantiate(projectiles[i], transform);
+                Projectile projectile = Instantiate(projectiles[i], spawnTransform);
                 projectile.SetVelocity(velocity);
             }
             _attacksDone++;

@@ -79,7 +79,7 @@ namespace Enemies.Salat
                 return;
 
             Projectile projectilePrefab = projectiles[_lastProjectileIndex];
-            Projectile projectile = Instantiate(projectilePrefab, _pointToStartAttack);
+            Projectile projectile = Instantiate(projectilePrefab, shootStartTransform);
             projectilePrefab.gameObject.SetActive(false);
 
             projectile.SetVelocity(Vector2.left * projectileSpeed);
