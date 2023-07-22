@@ -1,21 +1,23 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager instance;
-    [HideInInspector] public GameState gameState;
+    [SerializeField] private PauseMenu pauseMenu;                      //Pause menu
 
-    [SerializeField] private GameObject _pauseMenu;                       //Pause menu
+    public GameState State { get; private set; }
     private MainInputActions _inputActions;
 
-    private void Awake()
+    public enum GameState               // Game States
     {
-        if (instance != null && instance != this)
-            Destroy(instance);
-        instance = this;
-        SwitchToContinuing();
+        Continuing,
+        Paused,
+        Finished
+    }
 
+    protected override void Awake()
+    {
+        base.Awake();
         _inputActions = new MainInputActions();
     }
 
@@ -27,43 +29,28 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         _inputActions.Player.Pause.started -= OnPausePressed;
+        _inputActions.Disable();
     }
 
 
-    public enum GameState               // Game States
-    { 
-        Continuing,
-        Paused,
-        Finished
-    }
     public void SwitchToPaused()
     {
-        gameState = GameState.Paused;
+        Time.timeScale = 0f;
+        State = GameState.Paused;
     }
     public void SwitchToFinished()
     {
-        gameState = GameState.Finished;
+        State = GameState.Finished;
     }
     public void SwitchToContinuing()
     {
-        gameState = GameState.Continuing;
+        Time.timeScale = 1f;
+        State = GameState.Continuing;
     }                                             // Game States
-
-
 
     private void OnPausePressed(InputAction.CallbackContext vakue)
     {
-        _pauseMenu.SetActive(!_pauseMenu.activeSelf);
-        if (_pauseMenu.activeSelf == true)
-        {
-            SwitchToPaused();
-            Time.timeScale = 0f;
-        }
-        else if (_pauseMenu.activeSelf == false)
-        {
-            SwitchToContinuing();
-            Time.timeScale = 1f;
-        }
+        pauseMenu.HandleEscapeAction();
     }
 
 }
