@@ -8,6 +8,11 @@ public class Pistol : Weapon
 
     private float _lastShotTime;
 
+    private void OnEnable()
+    {
+        _lastShotTime = 0f;
+    }
+
     public override void Attack(Vector2 direction, Transform spawnTransform)
     {
         if (Time.time < _lastShotTime + fireRate)
@@ -15,6 +20,7 @@ public class Pistol : Weapon
 
         Projectile projectile = Instantiate(projectilePrefab, spawnTransform);
         projectile.SetVelocity(direction * projectileSpeed);
+        _lastShotTime = Time.time;
     }
 
 }

@@ -11,6 +11,7 @@ namespace Player
 
         private MainInputActions _inputActions;
         private Vector2 _moveVector;
+        private bool _attackPressed;
 
         private void Awake()
         {
@@ -20,6 +21,13 @@ namespace Player
         private void Update()
         {
             player.Movement.Move(_moveVector);
+
+            if (GameManager.Instance.State != GameManager.GameState.Continuing || !_attackPressed)
+                return;
+
+            Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
+            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+            player.CurrentWeapon.Attack(direction, transform);
         }
 
         private void OnEnable()
@@ -30,7 +38,9 @@ namespace Player
             _inputActions.Player.Movement.canceled += OnMovementCanceled;
 
             _inputActions.Player.Jump.started += OnJumpStarted;
+
             _inputActions.Player.Shoot.started += OnShootStarted;
+            _inputActions.Player.Shoot.canceled += OnShootCanceled;
         }
 
         private void OnDisable()
@@ -39,7 +49,9 @@ namespace Player
             _inputActions.Player.Movement.canceled -= OnMovementCanceled;
 
             _inputActions.Player.Jump.started -= OnJumpStarted;
-            _inputActions.Player.Shoot.started += OnShootStarted;
+
+            _inputActions.Player.Shoot.started -= OnShootStarted;
+            _inputActions.Player.Shoot.canceled -= OnShootCanceled;
 
             _inputActions.Disable();
         }
@@ -48,15 +60,7 @@ namespace Player
         private void OnMovementCanceled(InputAction.CallbackContext value) => _moveVector = Vector2.zero;
         private void OnJumpStarted(InputAction.CallbackContext value) => player.Movement.Jump();
 
-        private void OnShootStarted(InputAction.CallbackContext value)
-        {
-            if (GameManager.Instance.State == GameManager.GameState.Continuing)
-            {
-                Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
-                Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
-                player.CurrentWeapon.Attack(direction, transform);
-                //player.CurrentWeapon.RotateWeapon(direction);
-            }
-        }
+        private void OnShootStarted(InputAction.CallbackContext value) => _attackPressed = true;
+        private void OnShootCanceled(InputAction.CallbackContext value) => _attackPressed = false;
     }
 }
