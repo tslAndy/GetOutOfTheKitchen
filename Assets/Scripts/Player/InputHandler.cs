@@ -8,6 +8,7 @@ namespace Player
     {
         [SerializeField] private PlayerScripts player;
         [SerializeField] private Camera cam;
+        [SerializeField] private Rotations rotations;
 
         private MainInputActions _inputActions;
         private Vector2 _moveVector;
@@ -17,16 +18,22 @@ namespace Player
         {
             _inputActions = new MainInputActions();
         }
+        private void Start()
+        {
+            rotations.SetRotationsOnStart(_inputActions, cam);
+        }
 
         private void Update()
         {
             player.Movement.Move(_moveVector);
+            Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
+
+            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
+            rotations.RotateArms(direction, mousePosition);
+            rotations.RotateEyes(direction);
 
             if (GameManager.Instance.State != GameManager.GameState.Continuing || !_attackPressed)
                 return;
-
-            Vector2 mousePosition = cam.ScreenToWorldPoint(_inputActions.Player.MousePosition.ReadValue<Vector2>());
-            Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
             player.CurrentWeapon.Attack(direction, transform);
         }
 
