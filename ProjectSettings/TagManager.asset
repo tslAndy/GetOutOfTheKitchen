@@ -49,3 +49,15 @@ TagManager:
   - name: Enemies
     uniqueID: 4015246629
     locked: 0
+  - name: Player(bottom)
+    uniqueID: 675778745
+    locked: 0
+  - name: Player(under)
+    uniqueID: 2564673035
+    locked: 0
+  - name: Player(upper)
+    uniqueID: 4144627181
+    locked: 0
+  - name: Player(top)
+    uniqueID: 406275665
+    locked: 0
