@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc3919a9e071a174daf07ab6286b3b9a, type: 3}
-  m_Name: SuperPistolGood
+  m_Name: SuperPistol
   m_EditorClassIdentifier: 
-  itemName: Super Pistol
-  itemPrice: 400
-  itemTexture: {fileID: 2800000, guid: a8a346c222950c840a44249c1f9a8362, type: 3}
-  item: {fileID: 11400000, guid: 5b37856e92bd29f48bc784f94438f71d, type: 2}
+  item: {fileID: 1285492204359248167, guid: 77884fb899a981d418e891a6b9f58b56, type: 3}
+  goodName: Super Pistol
+  goodPrice: 300
+  goodTexture: {fileID: 2800000, guid: ad342768e9520e640b4b86299059381d, type: 3}

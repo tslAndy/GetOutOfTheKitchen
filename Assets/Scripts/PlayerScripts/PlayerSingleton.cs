@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player
+namespace PlayerScripts
 {
     public class PlayerSingleton : Singleton<PlayerSingleton>
     {

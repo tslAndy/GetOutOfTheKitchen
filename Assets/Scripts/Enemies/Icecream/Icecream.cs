@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Extensions;
-using Player;
+using PlayerScripts;
 
 namespace Enemies.Icecream
 {

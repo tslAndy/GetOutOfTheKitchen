@@ -350,10 +350,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shop: {fileID: 0}
-  goodScriptableFromInspector: {fileID: 0}
-  itemName: {fileID: 8718063289670348051}
-  itemPrice: {fileID: 8718063291039563031}
-  itemImage: {fileID: 8718063290382809704}
+  goodScriptable: {fileID: 0}
+  goodName: {fileID: 8718063289670348051}
+  goodPrice: {fileID: 8718063291039563031}
+  goodImage: {fileID: 8718063290382809704}
   buyButton: {fileID: 8718063289481088329}
 --- !u!1 &8718063290382809706
 GameObject:

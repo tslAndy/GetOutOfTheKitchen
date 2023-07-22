@@ -1,5 +1,5 @@
 using UnityEngine;
-using Player;
+using PlayerScripts;
 
 namespace Enemies.Hamburger
 {

@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : Item
+namespace Weapons
 {
-    public override ItemType GetItemType() => ItemType.Weapon;
-    public abstract void Attack(Vector2 direction, Transform spawnTransform);
-    public virtual void RotateWeapon(Vector2 direction, Transform transformToRotate)
+    public abstract class Weapon : Item
     {
-        transformToRotate.up = direction;
+        public override ItemType GetItemType() => ItemType.Weapon;
+        public abstract void OnShootStarted(Vector2 direction);
+        public abstract void OnShootPerformed(Vector2 direction);
+        public abstract void OnShootCanceled(Vector2 direction);
     }
 }

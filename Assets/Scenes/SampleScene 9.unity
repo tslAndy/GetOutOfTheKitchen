@@ -714,7 +714,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 6590101300333094896}
-  weapon: {fileID: 11400000, guid: 719fb5705d8ac2e4cb39d4d7726cbb49, type: 2}
+  weaponManager: {fileID: 0}
+  itemManagerManager: {fileID: 0}
 --- !u!4 &6590101300333094906
 Transform:
   m_ObjectHideFlags: 0
