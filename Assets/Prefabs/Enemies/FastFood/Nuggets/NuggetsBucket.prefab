@@ -228,8 +228,8 @@ MonoBehaviour:
   rb: {fileID: 3975789072991279300}
   spawnTransform: {fileID: 186173723459407391}
   speed: 10
-  spawnRate: 0.5
-  projectileSpeed: 10
+  spawnRate: 1
+  projectileSpeed: 20
   angleBetweenProjectiles: 0
   projectiles:
   - {fileID: 5268960404228458467, guid: 87504cc850895b7438b2263070a4dfd3, type: 3}
