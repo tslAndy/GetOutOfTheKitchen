@@ -34,6 +34,7 @@ namespace PlayerScripts
             // ! Uncomment before commit
             rotations.RotateArms(GetMouseDirection(transform), GetMousePosition());
             rotations.RotateEyes(GetMouseDirection(transform));
+            rotations.RotateWeapon(GetMouseDirection(transform));
         }
 
         private void OnEnable()
