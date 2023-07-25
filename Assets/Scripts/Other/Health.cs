@@ -25,12 +25,12 @@ namespace Other
         {
             if (collision.gameObject.CompareTag(damageTag))
             {
-                _currentHealth -= 1;
-                healthSlider.value = _currentHealth / (float) startHealth;
+                Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+                int damageAmount = projectile == null ? 1 : projectile.Damage;
+                _currentHealth -= damageAmount;
+                healthSlider.value = _currentHealth / (float)startHealth;
                 if (_currentHealth <= 0)
-                {
                     Die();
-                }
             }
         }
 

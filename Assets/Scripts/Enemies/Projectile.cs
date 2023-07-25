@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] private int damage;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Collider2D coll;
+
+    public int Damage => damage;
 
     public void SetVelocity(Vector2 velocity)
     {
