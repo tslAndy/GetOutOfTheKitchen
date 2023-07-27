@@ -16,7 +16,11 @@ namespace PlayerScripts
         public void Move(Vector2 direction)
         {
             if (!_grounded)
+            {
+                if (direction.y < 0 && rb.velocity.y > -jumpSpeed)
+                    rb.velocity = new Vector2(rb.velocity.x, -jumpSpeed);
                 return;
+            }
 
             // if standing on platform and want to jump off
             if (_platformCollider != null && direction.y < 0)
@@ -29,6 +33,7 @@ namespace PlayerScripts
         {
             if (_grounded)
             {
+                transform.position += Vector3.up * 0.01f;
                 rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
                 _grounded = false;
             }
