@@ -11,6 +11,7 @@ namespace PlayerScripts
     {
         [SerializeField] GameObject arm1, arm2;
         [SerializeField] GameObject pupil1, pupil2;
+        [SerializeField] Player player;
 
 
         bool _facingRight = true;
@@ -43,6 +44,11 @@ namespace PlayerScripts
         {
             pupil1.transform.up = direction;
             pupil2.transform.up = direction;
+        }
+
+        public void RotateWeapon(Vector3 direction)
+        {
+            player.WeaponManager.CurrentWeapon.transform.up = direction;
         }
 
         private void FlipPlayer()
