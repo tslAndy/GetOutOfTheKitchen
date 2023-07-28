@@ -45,8 +45,11 @@ namespace PlayerScripts
 
             _inputActions.Player.Jump.started += OnJumpStarted;
 
-            _inputActions.Player.Shoot.started += OnShootStarted;
-            _inputActions.Player.Shoot.canceled += OnShootCanceled;
+            _inputActions.Player.MainShoot.started += OnMainShootStarted;
+            _inputActions.Player.MainShoot.canceled += OnMainShootCanceled;
+
+            _inputActions.Player.AdditionalShoot.started += OnAdditionalShootStarted;
+            _inputActions.Player.AdditionalShoot.canceled += OnAdditionalShootCanceled;
         }
 
         private void OnDisable()
@@ -56,8 +59,11 @@ namespace PlayerScripts
 
             _inputActions.Player.Jump.started -= OnJumpStarted;
 
-            _inputActions.Player.Shoot.started -= OnShootStarted;
-            _inputActions.Player.Shoot.canceled -= OnShootCanceled;
+            _inputActions.Player.MainShoot.started -= OnMainShootStarted;
+            _inputActions.Player.MainShoot.canceled -= OnMainShootCanceled;
+
+            _inputActions.Player.AdditionalShoot.started -= OnAdditionalShootStarted;
+            _inputActions.Player.AdditionalShoot.canceled -= OnAdditionalShootCanceled;
 
             _inputActions.Disable();
         }
@@ -65,20 +71,36 @@ namespace PlayerScripts
         private void OnMovementPerformed(InputAction.CallbackContext value) => _moveVector = value.ReadValue<Vector2>();
         private void OnMovementCanceled(InputAction.CallbackContext value) => _moveVector = Vector2.zero;
         private void OnJumpStarted(InputAction.CallbackContext value) => player.Movement.Jump();
-        private void OnShootStarted(InputAction.CallbackContext value)
+        private void OnMainShootStarted(InputAction.CallbackContext value)
         {
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnShootStarted(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnMainShootStarted(GetMouseDirection(transform));
         }
 
-        private void OnShootCanceled(InputAction.CallbackContext value)
+        private void OnMainShootCanceled(InputAction.CallbackContext value)
         {
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnShootCanceled(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnMainShootCanceled(GetMouseDirection(transform));
+        }
+
+        private void OnAdditionalShootStarted(InputAction.CallbackContext value)
+        {
+            if (GameManager.Instance.State != GameManager.GameState.Continuing)
+                return;
+
+            player.WeaponManager.CurrentWeapon.OnAdditionalShootStarted(GetMouseDirection(transform));
+        }
+
+        private void OnAdditionalShootCanceled(InputAction.CallbackContext value)
+        {
+            if (GameManager.Instance.State != GameManager.GameState.Continuing)
+                return;
+
+            player.WeaponManager.CurrentWeapon.OnAdditionalShootCanceled(GetMouseDirection(transform));
         }
 
         private Vector2 GetMousePosition()

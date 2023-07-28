@@ -55,9 +55,18 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""MainShoot"",
                     ""type"": ""Button"",
                     ""id"": ""6338c2ba-6da8-4cd8-a569-9d7cd96535bd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdditionalShoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1d81f38-fbe6-4a03-b4d8-cb1cf5794d44"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -158,7 +167,7 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""MainShoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -172,6 +181,17 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0621f47a-a1e9-4e89-9206-f3cc1f7a1c36"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdditionalShoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -183,7 +203,8 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
-        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_MainShoot = m_Player.FindAction("MainShoot", throwIfNotFound: true);
+        m_Player_AdditionalShoot = m_Player.FindAction("AdditionalShoot", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
@@ -247,7 +268,8 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_MousePosition;
-    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_MainShoot;
+    private readonly InputAction m_Player_AdditionalShoot;
     private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
@@ -256,7 +278,8 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
-        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @MainShoot => m_Wrapper.m_Player_MainShoot;
+        public InputAction @AdditionalShoot => m_Wrapper.m_Player_AdditionalShoot;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -276,9 +299,12 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
                 @MousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
-                @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @MainShoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMainShoot;
+                @MainShoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMainShoot;
+                @MainShoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMainShoot;
+                @AdditionalShoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAdditionalShoot;
+                @AdditionalShoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAdditionalShoot;
+                @AdditionalShoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAdditionalShoot;
                 @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
@@ -295,9 +321,12 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
-                @Shoot.started += instance.OnShoot;
-                @Shoot.performed += instance.OnShoot;
-                @Shoot.canceled += instance.OnShoot;
+                @MainShoot.started += instance.OnMainShoot;
+                @MainShoot.performed += instance.OnMainShoot;
+                @MainShoot.canceled += instance.OnMainShoot;
+                @AdditionalShoot.started += instance.OnAdditionalShoot;
+                @AdditionalShoot.performed += instance.OnAdditionalShoot;
+                @AdditionalShoot.canceled += instance.OnAdditionalShoot;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -310,7 +339,8 @@ public partial class @MainInputActions : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnMainShoot(InputAction.CallbackContext context);
+        void OnAdditionalShoot(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -77,9 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9eeabde6dd4264a872e13affed1ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 6603293218654996249, guid: 6083a55ccbb601f48b0865a8b2291f62, type: 3}
+  mainProjectilePrefab: {fileID: 950398877965276717, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}
+  additionalProjectilePrefab: {fileID: 950398877965276717, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}
   projectileSpawnTransform: {fileID: 1285492202943728541}
-  fireRate: 0.06
+  mainFireRate: 0.01
+  additionalFireRate: 0.1
   speed: 22
 --- !u!1 &2654047515628889204
 GameObject:

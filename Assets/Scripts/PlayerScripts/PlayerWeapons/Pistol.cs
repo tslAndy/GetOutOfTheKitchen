@@ -8,32 +8,46 @@ namespace PlayerScripts.PlayerWeapons
 {
     public class Pistol : Weapon
     {
-        [SerializeField] private Projectile projectilePrefab;
+        [SerializeField] private Projectile mainProjectilePrefab, additionalProjectilePrefab;
         [SerializeField] private Transform projectileSpawnTransform;
-        [SerializeField] private float fireRate, speed;
+        [SerializeField] private float mainFireRate, additionalFireRate, speed;
 
-        private bool _shootPressed;
+        private bool _mainShootPressed, _additionalShootPressed;
         private Vector2 _shootDirection;
-        private float _lastShotTime;
+        private float _lastMainShotTime, _lastAdditionalShotTime;
 
         private void Update()
         {
-            if (!_shootPressed)
+            if (!(_mainShootPressed || _additionalShootPressed))
                 return;
 
-            if (Time.time < _lastShotTime + fireRate)
-                return;
+            if (_mainShootPressed && Time.time > _lastMainShotTime + mainFireRate)
+            {
+                SpawnProjectile(mainProjectilePrefab);
+                _lastMainShotTime = Time.time;
+            }
 
-            _shootDirection = InputHandler.Instance.GetMouseDirection(projectileSpawnTransform);
-            Projectile projectile = Instantiate(projectilePrefab, projectileSpawnTransform);
-            projectile.transform.SetParent(null);
-            projectile.SetVelocity(_shootDirection * speed);
-
-            _lastShotTime = Time.time;
+            if (_additionalShootPressed && Time.time > _lastAdditionalShotTime + additionalFireRate)
+            {
+                SpawnProjectile(additionalProjectilePrefab);
+                _lastAdditionalShotTime = Time.time;
+            }
         }
 
-        public override void OnShootStarted(Vector2 direction) => _shootPressed = true;
-        public override void OnShootPerformed(Vector2 direction) { }
-        public override void OnShootCanceled(Vector2 direction) => _shootPressed = false;
+        private void SpawnProjectile(Projectile projectileToSpawn)
+        {
+            _shootDirection = InputHandler.Instance.GetMouseDirection(projectileSpawnTransform);
+            Projectile projectile = Instantiate(projectileToSpawn, projectileSpawnTransform);
+            projectile.transform.SetParent(null);
+            projectile.SetVelocity(_shootDirection * speed);
+        }
+
+        public override void OnMainShootStarted(Vector2 direction) => _mainShootPressed = true;
+        public override void OnMainShootCanceled(Vector2 direction) => _mainShootPressed = false;
+        public override void OnMainShootPerformed(Vector2 direction) { }
+
+        public override void OnAdditionalShootStarted(Vector2 direction) => _additionalShootPressed = true;
+        public override void OnAdditionalShootCanceled(Vector2 direction) => _additionalShootPressed = false;
+        public override void OnAdditionalShootPerformed(Vector2 direction) { }
     }
 }
