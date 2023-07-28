@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HotSouceProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 950398877965276717, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}

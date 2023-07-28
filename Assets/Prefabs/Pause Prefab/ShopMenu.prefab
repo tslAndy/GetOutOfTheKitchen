@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caloriesText: {fileID: 6317618562455778289}
-  playerItemManager: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &6317618563500142130
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,7 +582,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8718063289481088329, guid: 48caf97aa6efc3a40bf0d8d87162031f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8718063289481088329, guid: 48caf97aa6efc3a40bf0d8d87162031f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode

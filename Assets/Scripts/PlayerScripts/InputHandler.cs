@@ -67,11 +67,17 @@ namespace PlayerScripts
         private void OnJumpStarted(InputAction.CallbackContext value) => player.Movement.Jump();
         private void OnShootStarted(InputAction.CallbackContext value)
         {
+            if (GameManager.Instance.State != GameManager.GameState.Continuing)
+                return;
+
             player.WeaponManager.CurrentWeapon.OnShootStarted(GetMouseDirection(transform));
         }
 
         private void OnShootCanceled(InputAction.CallbackContext value)
         {
+            if (GameManager.Instance.State != GameManager.GameState.Continuing)
+                return;
+
             player.WeaponManager.CurrentWeapon.OnShootCanceled(GetMouseDirection(transform));
         }
 

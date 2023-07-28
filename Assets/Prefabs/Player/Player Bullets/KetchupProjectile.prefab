@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KetchupProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 6929344587014117171, guid: 2f034d0d85f4c71479ccf1c291688de3, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6929344587014117174, guid: 2f034d0d85f4c71479ccf1c291688de3, type: 3}
       propertyPath: m_Color.b
       value: 0.13020645

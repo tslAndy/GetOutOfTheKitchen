@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   cam: {fileID: 873912573}
+  rotations: {fileID: 0}
 --- !u!114 &587030675
 MonoBehaviour:
   m_ObjectHideFlags: 0
