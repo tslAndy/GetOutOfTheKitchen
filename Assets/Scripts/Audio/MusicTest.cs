@@ -6,7 +6,6 @@ public class MusicTest : MonoBehaviour
     {
         if(AudioManager.Instance != null)
         {
-            Debug.Log("pLAY ");
             AudioManager.Instance.MusicSource.clip = AudioManager.Instance.AudioClips["Soundtrack Jungle"];
             AudioManager.Instance.MusicSource.Play();
         }

@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0b93d91c4b52d62429b0bfb19691dc61
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Mirza
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 8afe288814e5d3343afa48c2e2b3a3d4, type: 3}
+  - {fileID: 12800000, guid: 26bb92c1f6c8a5045846e631793f2e49, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

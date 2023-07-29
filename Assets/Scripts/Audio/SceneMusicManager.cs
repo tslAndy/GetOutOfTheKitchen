@@ -10,17 +10,14 @@ public class SceneMusicManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             currentScene = CurrentScene.MainMenu;
-            Debug.Log("Main Menu");
         }
         else if (SceneManager.GetActiveScene().name == "VisualNovel1")
         {
             currentScene = CurrentScene.VisualNovel;
-            Debug.Log("VisualNovel1");
         }
         else if (SceneManager.GetActiveScene().name == "SampleScene")
         {
             currentScene = CurrentScene.Level;
-            Debug.Log("SampleScene");
         }
     }
     private void Start()

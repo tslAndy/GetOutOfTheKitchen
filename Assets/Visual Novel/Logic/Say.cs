@@ -38,7 +38,6 @@ public class Say : MonoBehaviour
 
             _name.SetText(_dialog.Get[_index].Name);
             _text.SetText(_dialog.Get[_index].Text);
-            Debug.Log("Next Text");
             CreateChoice();
             _index++;
         }

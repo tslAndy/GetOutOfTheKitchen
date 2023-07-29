@@ -51,7 +51,6 @@ public class GameManager : Singleton<GameManager>
     private void OnPausePressed(InputAction.CallbackContext vakue)
     {
         pauseMenu.HandleEscapeAction();
-        Debug.Log("esc pressed");
     }
 
 }
