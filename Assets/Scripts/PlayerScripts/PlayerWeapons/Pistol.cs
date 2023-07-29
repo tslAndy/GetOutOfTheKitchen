@@ -11,6 +11,7 @@ namespace PlayerScripts.PlayerWeapons
         [SerializeField] private Projectile mainProjectilePrefab, additionalProjectilePrefab;
         [SerializeField] private Transform projectileSpawnTransform;
         [SerializeField] private float mainFireRate, additionalFireRate, speed;
+        [SerializeField] private bool canUseAdditionalAttack;
 
         private bool _mainShootPressed, _additionalShootPressed;
         private float _lastMainShotTime, _lastAdditionalShotTime;
@@ -26,7 +27,7 @@ namespace PlayerScripts.PlayerWeapons
                 _lastMainShotTime = Time.time;
             }
 
-            if (_additionalShootPressed && Time.time > _lastAdditionalShotTime + additionalFireRate)
+            if (canUseAdditionalAttack && _additionalShootPressed && Time.time > _lastAdditionalShotTime + additionalFireRate)
             {
                 SpawnProjectile(additionalProjectilePrefab);
                 _lastAdditionalShotTime = Time.time;

@@ -1319,7 +1319,7 @@ PrefabInstance:
     - target: {fileID: 7711505938327209515, guid: 0218b71cf8326ae44ac5380cfd93d307, type: 3}
       propertyPath: weaponPrefab
       value: 
-      objectReference: {fileID: 8384281485711580528, guid: 9ec5c7b05f439ad43ad9802441d58de6, type: 3}
+      objectReference: {fileID: 1285492204359248167, guid: 9b501e5375646a244ba6fde43ef07997, type: 3}
     - target: {fileID: 7711505938327209521, guid: 0218b71cf8326ae44ac5380cfd93d307, type: 3}
       propertyPath: cam
       value: 

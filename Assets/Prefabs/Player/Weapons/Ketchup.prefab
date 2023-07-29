@@ -83,6 +83,7 @@ MonoBehaviour:
   mainFireRate: 0.07
   additionalFireRate: 0.25
   speed: 20
+  canUseAdditionalAttack: 1
 --- !u!1 &6388128422099847359
 GameObject:
   m_ObjectHideFlags: 0
