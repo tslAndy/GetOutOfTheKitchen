@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3919a9e071a174daf07ab6286b3b9a, type: 3}
   m_Name: Mayo
   m_EditorClassIdentifier: 
-  item: {fileID: 1285492204359248167, guid: 9ec5c7b05f439ad43ad9802441d58de6, type: 3}
-  goodName: Mayo
-  goodPrice: 600
+  item: {fileID: 8384281485711580528, guid: 9ec5c7b05f439ad43ad9802441d58de6, type: 3}
+  goodName: Mayo Burst
+  goodPrice: 100
   goodTexture: {fileID: 2800000, guid: d5bce4c4d452ace4dbc300436f78b7ea, type: 3}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc3919a9e071a174daf07ab6286b3b9a, type: 3}
   m_Name: Mustard
   m_EditorClassIdentifier: 
-  item: {fileID: 1285492204359248167, guid: 77884fb899a981d418e891a6b9f58b56, type: 3}
-  goodName: Mustard
-  goodPrice: 800
+  item: {fileID: 2475336012633276994, guid: 77884fb899a981d418e891a6b9f58b56, type: 3}
+  goodName: Mustard Shotgun
+  goodPrice: 1500
   goodTexture: {fileID: 2800000, guid: a45e39d8633ca7d4ca86c5088e21fe82, type: 3}

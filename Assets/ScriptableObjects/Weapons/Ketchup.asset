@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Ketchup
   m_EditorClassIdentifier: 
   item: {fileID: 1285492204359248167, guid: 9b501e5375646a244ba6fde43ef07997, type: 3}
-  goodName: Ketchup
-  goodPrice: 400
+  goodName: Pistol ketchup
+  goodPrice: 500
   goodTexture: {fileID: 2800000, guid: 86cd49d3912ab8f48beed852bddd4642, type: 3}
