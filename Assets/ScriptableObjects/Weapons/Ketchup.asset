@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc3919a9e071a174daf07ab6286b3b9a, type: 3}
-  m_Name: SuperPistol
+  m_Name: Ketchup
   m_EditorClassIdentifier: 
-  item: {fileID: 1285492204359248167, guid: 77884fb899a981d418e891a6b9f58b56, type: 3}
-  goodName: Super Pistol
-  goodPrice: 300
-  goodTexture: {fileID: 2800000, guid: ad342768e9520e640b4b86299059381d, type: 3}
+  item: {fileID: 1285492204359248167, guid: 9b501e5375646a244ba6fde43ef07997, type: 3}
+  goodName: Ketchup
+  goodPrice: 400
+  goodTexture: {fileID: 2800000, guid: 86cd49d3912ab8f48beed852bddd4642, type: 3}

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285492202943728540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.83, z: 0}
+  m_LocalPosition: {x: -0, y: 1.662, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 1285492204359248166}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5569809599404257513}
@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9eeabde6dd4264a872e13affed1ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainProjectilePrefab: {fileID: 950398877965276717, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}
-  additionalProjectilePrefab: {fileID: 950398877965276717, guid: bfec9248cfe66434d9f3c77536a7a3e2, type: 3}
+  mainProjectilePrefab: {fileID: 6603293218654996249, guid: 6083a55ccbb601f48b0865a8b2291f62, type: 3}
+  additionalProjectilePrefab: {fileID: 6603293218654996249, guid: fdcea4047d931d64f8079e0ceafe17db, type: 3}
   projectileSpawnTransform: {fileID: 1285492202943728541}
   mainFireRate: 0.1
   additionalFireRate: 0.3

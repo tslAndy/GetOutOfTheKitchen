@@ -20,17 +20,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.8113208
       objectReference: {fileID: 0}
-    - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
-      propertyPath: m_SortingLayer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 36973581
-      objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,9 +76,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4834713256054215043, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215046, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_Name
-      value: MustardProjectile
+      value: BigMustardProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4834713256054215047, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
+      propertyPath: damage
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

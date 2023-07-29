@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_Color.b
-      value: 0.13317904
+      value: 0.81761
       objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_Color.g
-      value: 0.6876154
+      value: 0.9662631
       objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_Color.r
-      value: 0.8113208
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215042, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_SortingLayer
@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834713256054215046, guid: dd7ab1af36a9bb44c8bcad0a1ccc7416, type: 3}
       propertyPath: m_Name
-      value: MustardProjectile
+      value: MayoProjectile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

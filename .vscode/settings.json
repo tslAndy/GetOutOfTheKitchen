@@ -54,5 +54,6 @@
     "workbench.colorCustomizations": {
         "sash.hoverBorder": "#3399ff"
     },
-    "peacock.color": "#007fff"
+    "peacock.color": "#007fff",
+    "dotnet.defaultSolution": "GetOutOfTheKitchen.sln"
 }

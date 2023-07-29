@@ -76,7 +76,7 @@ namespace PlayerScripts
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnMainShootStarted(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnMainShootStarted();
         }
 
         private void OnMainShootCanceled(InputAction.CallbackContext value)
@@ -84,7 +84,7 @@ namespace PlayerScripts
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnMainShootCanceled(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnMainShootCanceled();
         }
 
         private void OnAdditionalShootStarted(InputAction.CallbackContext value)
@@ -92,7 +92,7 @@ namespace PlayerScripts
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnAdditionalShootStarted(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnAdditionalShootStarted();
         }
 
         private void OnAdditionalShootCanceled(InputAction.CallbackContext value)
@@ -100,7 +100,7 @@ namespace PlayerScripts
             if (GameManager.Instance.State != GameManager.GameState.Continuing)
                 return;
 
-            player.WeaponManager.CurrentWeapon.OnAdditionalShootCanceled(GetMouseDirection(transform));
+            player.WeaponManager.CurrentWeapon.OnAdditionalShootCanceled();
         }
 
         private Vector2 GetMousePosition()
