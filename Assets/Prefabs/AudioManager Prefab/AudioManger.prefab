@@ -32,7 +32,7 @@ Transform:
   - {fileID: 4635610838251364497}
   - {fileID: 4635610839459216429}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4635610837504705380
 MonoBehaviour:
@@ -49,11 +49,10 @@ MonoBehaviour:
   MusicSource: {fileID: 4635610838251364494}
   SFXSource: {fileID: 4635610839459216426}
   Clips:
-  - {fileID: 8300000, guid: a6686fa78f9f3834cab8e3ca38deae3b, type: 3}
   - {fileID: 8300000, guid: 88358405699a60742b93be41c7c5a231, type: 3}
   - {fileID: 8300000, guid: 338b66bccc43f06459050a7762091831, type: 3}
-  - {fileID: 8300000, guid: 4b91e7ad5bf383842a78029791591bab, type: 3}
-  - {fileID: 8300000, guid: e6f6d5e6e9a178b44a120588171c2248, type: 3}
+  - {fileID: 8300000, guid: 19e65f155aaf8714cb9525c66261257b, type: 3}
+  - {fileID: 8300000, guid: f0cb6a31477819740bcf73885ecfb991, type: 3}
   - {fileID: 8300000, guid: 70423ac52e4bd9c49827a9d8042630d3, type: 3}
 --- !u!1 &4635610838251364495
 GameObject:

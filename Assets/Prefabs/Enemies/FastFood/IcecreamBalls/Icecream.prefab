@@ -342,8 +342,8 @@ MonoBehaviour:
   spawnTransform: {fileID: 8623988671676911422}
   speed: 8
   spawnRate: 1
-  projectileSpeed: 8
-  angleBetweenProjectiles: 20
+  projectileSpeed: 5
+  angleBetweenProjectiles: 30
   projectiles:
   - {fileID: -7550480461787798829, guid: 8fd8212e39d267041904d24ff3aad52e, type: 3}
   - {fileID: -7550480461787798829, guid: 4b05b79e823293e4d9d5160109205fde, type: 3}

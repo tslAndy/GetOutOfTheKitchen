@@ -15,7 +15,7 @@ public class SceneMusicManager : MonoBehaviour
         {
             currentScene = CurrentScene.VisualNovel;
         }
-        else if (SceneManager.GetActiveScene().name == "SampleScene")
+        else if (SceneManager.GetActiveScene().name == "FinalGameScene")
         {
             currentScene = CurrentScene.Level;
         }
@@ -30,7 +30,7 @@ public class SceneMusicManager : MonoBehaviour
         }
        else if(currentScene == CurrentScene.VisualNovel)
         {
-            AudioManager.Instance.MusicSource.clip = AudioManager.Instance.AudioClips["VisualNovel"];
+            AudioManager.Instance.MusicSource.clip = AudioManager.Instance.AudioClips["MainMenu"];
             AudioManager.Instance.MusicSource.loop = true;
             AudioManager.Instance.MusicSource.Play();
         }

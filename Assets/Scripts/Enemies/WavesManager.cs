@@ -33,7 +33,15 @@ public class WavesManager : MonoBehaviour
             case State.WaitingWaveEnd:
                 if (_currentWave.IsFinished())
                 {
-                    _state = _waveIndex == waves.Length ? State.Idle : State.SpawningWave;
+                    if (_waveIndex == waves.Length)
+                    {
+                        GameManager.Instance.SetPlayerIsWon();
+                        _state = State.Idle;
+                    }
+                    else
+                    {
+                        _state = State.SpawningWave;
+                    }
                     _currentWave.Destroy();
                 }
                 break;
