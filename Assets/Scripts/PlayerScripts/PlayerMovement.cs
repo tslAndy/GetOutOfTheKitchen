@@ -46,10 +46,10 @@ namespace PlayerScripts
 
         private IEnumerator JumpOffPlatformCoroutine()
         {
-            _grounded = false;
             Physics2D.IgnoreCollision(coll, _platformCollider);
             yield return new WaitForSeconds(0.4f);
-            Physics2D.IgnoreCollision(coll, _platformCollider, false);
+            if (_platformCollider != null)
+                Physics2D.IgnoreCollision(coll, _platformCollider, false);
             _platformCollider = null;
         }
 

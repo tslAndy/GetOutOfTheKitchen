@@ -21,7 +21,7 @@ TagManager:
   - Enemy
   - EnemyBullets
   - Platforms
-  - 
+  - Bounds
   - 
   - 
   - 
@@ -46,9 +46,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Enemies
-    uniqueID: 4015246629
-    locked: 0
   - name: Player(bottom)
     uniqueID: 675778745
     locked: 0
@@ -66,4 +63,7 @@ TagManager:
     locked: 0
   - name: Projectiles
     uniqueID: 36973581
+    locked: 0
+  - name: Enemies
+    uniqueID: 4015246629
     locked: 0

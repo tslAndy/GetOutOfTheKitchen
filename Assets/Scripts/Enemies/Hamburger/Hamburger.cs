@@ -62,6 +62,8 @@ namespace Enemies.Hamburger
                 _shelfColl = collision.collider;
             else if (collision.gameObject.CompareTag("Wall"))
                 Destroy(gameObject);
+            else if (collision.gameObject.CompareTag("Player"))
+                Destroy(gameObject);
         }
     }
 }

@@ -24,8 +24,8 @@ namespace PlayerScripts
 
         public void ChangeWeapon(Weapon newWeaponPrefab)
         {
-            //if (CurrentWeapon != null)
-            //    Destroy(CurrentWeapon.gameObject);
+            if (CurrentWeapon != null)
+                Destroy(CurrentWeapon.gameObject);
 
             CurrentWeapon = Instantiate(newWeaponPrefab, weaponTransform);
         }
