@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 5780538030771206734}
   m_Layer: 8
   m_Name: Salat
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5389745527729942457, guid: 1e1289a80945e474caf965f3237b2a4b, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 5389745527729942459, guid: 1e1289a80945e474caf965f3237b2a4b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -663,6 +667,10 @@ PrefabInstance:
     - target: {fileID: 1610464270430000391, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1610464270430000391, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBullet
       objectReference: {fileID: 0}
     - target: {fileID: 1610464270430000393, guid: 1a1118e871e183b4c9930bf290c21aa4, type: 3}
       propertyPath: m_RootOrder
@@ -815,6 +823,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1398730571140868033, guid: aae4a3d493556ab49a45dc9427a3404a, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBullet
+      objectReference: {fileID: 0}
     - target: {fileID: 1398730571140868063, guid: aae4a3d493556ab49a45dc9427a3404a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -941,6 +953,10 @@ PrefabInstance:
     - target: {fileID: 4188082781605426028, guid: bf1972b86d064e54a838c616e5700ac1, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4188082781605426028, guid: bf1972b86d064e54a838c616e5700ac1, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -4,9 +4,11 @@ using UnityEngine.InputSystem;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private PauseMenu pauseMenu;                      //Pause menu
+    [SerializeField] private GameObject deathScreen;                    //Death screen
 
     public GameState State { get; private set; }
     private MainInputActions _inputActions;
+    private bool _playerIsDead;
 
     public enum GameState               // Game States
     {
@@ -25,6 +27,7 @@ public class GameManager : Singleton<GameManager>
     {
         _inputActions.Enable();
         _inputActions.Player.Pause.started += OnPausePressed;
+        Time.timeScale = 1f;
     }
     private void OnDisable()
     {
@@ -48,9 +51,18 @@ public class GameManager : Singleton<GameManager>
         State = GameState.Continuing;
     }                                             // Game States
 
-    private void OnPausePressed(InputAction.CallbackContext vakue)
+    private void OnPausePressed(InputAction.CallbackContext value)
     {
-        pauseMenu.HandleEscapeAction();
+        if (_playerIsDead)
+            return;
+        else
+            pauseMenu.HandleEscapeAction();
     }
 
+    public void SetPlayerIsDead()
+    { 
+        _playerIsDead = true;
+        deathScreen.SetActive(true);
+        Time.timeScale = 0f;
+    }
 }

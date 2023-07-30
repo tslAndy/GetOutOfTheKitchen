@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7550480461787798829}
   m_Layer: 9
   m_Name: GreenIcecreamBall
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -279720667
-  m_SortingLayer: 1
+  m_SortingLayer: 7
   m_SortingOrder: 1
   m_Sprite: {fileID: 712466890, guid: 0d02ff0628e12ca48ae6a3bd315c5adb, type: 3}
   m_Color: {r: 0, g: 1, b: 0.058775187, a: 1}
