@@ -110,10 +110,10 @@ TextureImporter:
       name: Salat_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 60
-        width: 175
-        height: 240
+        x: 3
+        y: 59
+        width: 159
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,8 +121,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e4225ac09e6e5344ae5ab82285a80c9
-      internalID: -1139829330
+      spriteID: d7398da1c6d6e4c4a81eee5582750f30
+      internalID: -251521961
       vertices: []
       indices: 
       edges: []
@@ -131,10 +131,10 @@ TextureImporter:
       name: Salat_1
       rect:
         serializedVersion: 2
-        x: 198
-        y: 209
-        width: 102
-        height: 91
+        x: 209
+        y: 210
+        width: 91
+        height: 90
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 532ba3fb94ce1174f8f17cd038b401a2
-      internalID: -1446457176
+      spriteID: 1c5050bb0e4630d41ac49c4633e9ceda
+      internalID: 1923490299
       vertices: []
       indices: 
       edges: []
@@ -152,10 +152,10 @@ TextureImporter:
       name: Salat_2
       rect:
         serializedVersion: 2
-        x: 125
-        y: 2
-        width: 57
-        height: 57
+        x: 201
+        y: 109
+        width: 95
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f67c686224b28314a842a1167176e4db
-      internalID: 413156140
+      spriteID: 8b89b201d22e32646bb653cd311fa563
+      internalID: 1297928840
       vertices: []
       indices: 
       edges: []
@@ -173,10 +173,10 @@ TextureImporter:
       name: Salat_3
       rect:
         serializedVersion: 2
-        x: 206
-        y: 3
-        width: 87
-        height: 88
+        x: 124
+        y: 2
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b1260f096a05347a42673ea295144d
-      internalID: -482254063
+      spriteID: e583e3d8338c8004ab7f20072a07591f
+      internalID: -77252627
       vertices: []
       indices: 
       edges: []
@@ -194,10 +194,10 @@ TextureImporter:
       name: Salat_4
       rect:
         serializedVersion: 2
-        x: 197
-        y: 104
-        width: 103
-        height: 103
+        x: 206
+        y: 4
+        width: 87
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd8338fda100e8419d941f4efcb828c
-      internalID: 202830782
+      spriteID: d6b755efa3fad3f4cbd43e282863ab16
+      internalID: -1817169235
       vertices: []
       indices: 
       edges: []
@@ -222,11 +222,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Salat_1: -1446457176
-      Salat_2: 413156140
-      Salat_4: 202830782
-      Salat_0: -1139829330
-      Salat_3: -482254063
+      Salat_1: 1923490299
+      Salat_2: 1297928840
+      Salat_4: -1817169235
+      Salat_0: -251521961
+      Salat_3: -77252627
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

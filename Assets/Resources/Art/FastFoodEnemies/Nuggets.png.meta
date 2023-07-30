@@ -107,43 +107,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nuggets_0
+      name: Nuggets_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 39
-        width: 116
+        y: 38
+        width: 113
         height: 158
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 554f745174ae32b45bc38f0d678ec019
-      internalID: 2138694617
+      spriteID: b5fd949228821d34fac8be7993418162
+      internalID: 365290215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nuggets_1
+      name: Nuggets_3
       rect:
         serializedVersion: 2
-        x: 126
-        y: 0
-        width: 174
-        height: 236
+        x: 129
+        y: 4
+        width: 168
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31cc6ef3e6781314a880b00c5c726f8e
-      internalID: -298415802
+      spriteID: b63d898d54d4cf9429fb2e38562debca
+      internalID: 559004437
       vertices: []
       indices: 
       edges: []
@@ -159,8 +159,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Nuggets_0: 2138694617
-      Nuggets_1: -298415802
+      Nuggets_0: -597197611
+      Nuggets_2: -2089319436
+      Nuggets_1: 365290215
+      Nuggets_3: 559004437
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
