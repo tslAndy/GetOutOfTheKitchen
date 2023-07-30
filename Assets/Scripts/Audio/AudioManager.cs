@@ -31,7 +31,6 @@ public class AudioManager : MonoBehaviour
             if (clip.Key == _clip)
             {
                 SFXSource.PlayOneShot(clip.Value);
-                Debug.Log("Play SFX");
             }
         }
     }

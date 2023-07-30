@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class PauseMenu : MonoBehaviour
@@ -38,5 +39,10 @@ public class PauseMenu : MonoBehaviour
             else
                 _menus.Last().SetActive(true);
         }
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
