@@ -29,7 +29,6 @@ public class DonutUpdateState : DonutBaseState
                 if (Vector3.Distance(context.transform.position, _firstStop.position) <= 0.1f)
                 {
                     _currentPosition = 1;
-                    Debug.Log("0 t o 1");
                     
 
                 }
@@ -40,7 +39,6 @@ public class DonutUpdateState : DonutBaseState
                  if (Vector3.Distance(context.transform.position, _secondStop.position) <= 0.1f)
                  {
                     _currentPosition = 2;
-                    Debug.Log("1 t o 2");
 
                 }
                  break;
@@ -59,7 +57,6 @@ public class DonutUpdateState : DonutBaseState
                         amountOfRounds++;
                         _currentPosition = 0;
                         context.transform.position = _zeroStop.position;
-                        Debug.Log("2 t o 0");
                         break;
                         
                     }
@@ -68,6 +65,7 @@ public class DonutUpdateState : DonutBaseState
          
           
         }
+
     }
     
 

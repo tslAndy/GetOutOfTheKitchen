@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1535901581526613437}
   m_Layer: 8
   m_Name: New Donut
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstStop: {fileID: 0}
+  zeroStop: {fileID: 0}
   secondStop: {fileID: 0}
   speedInAttack: 5
   howManyRounds: 5

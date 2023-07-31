@@ -518,6 +518,11 @@ Transform:
   m_Father: {fileID: 290467747}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &184078321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535901581526613430, guid: 3942335477f82484c855126147c7690f, type: 3}
+  m_PrefabInstance: {fileID: 343904027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &253483681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1039,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Donut
       objectReference: {fileID: 0}
+    - target: {fileID: 1535901581526613430, guid: 3942335477f82484c855126147c7690f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1535901581526613434, guid: 3942335477f82484c855126147c7690f, type: 3}
       propertyPath: zeroStop
       value: 
@@ -1048,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 570285599}
     - target: {fileID: 6155023282296948121, guid: 3942335477f82484c855126147c7690f, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -3948,9 +3957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemiesPrefab: {fileID: 6757388533797642959, guid: 1f5eaa58883202b449a6d8daa9f1f492, type: 3}
-    enemies: {fileID: 0}
-    timeAfterPrevWave: 0
   - enemiesPrefab: {fileID: 7039074848429267487, guid: 290fe8d2550fc824ba3c9059b2e640cc, type: 3}
     enemies: {fileID: 0}
     timeAfterPrevWave: 0
@@ -3990,6 +3996,7 @@ MonoBehaviour:
   - enemiesPrefab: {fileID: 4718568498639811835, guid: cac80b94aff73b64288c9825755d78f4, type: 3}
     enemies: {fileID: 0}
     timeAfterPrevWave: 3
+  Boss: {fileID: 184078321}
 --- !u!1 &1870198478
 GameObject:
   m_ObjectHideFlags: 0

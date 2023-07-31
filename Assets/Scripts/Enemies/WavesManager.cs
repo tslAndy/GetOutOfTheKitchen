@@ -6,6 +6,7 @@ using UnityEngine;
 public class WavesManager : MonoBehaviour
 {
     [SerializeField] private Wave[] waves;
+    [SerializeField] private GameObject Boss;
 
     private int _waveIndex;
     private Wave _currentWave;
@@ -34,8 +35,8 @@ public class WavesManager : MonoBehaviour
                 if (_currentWave.IsFinished())
                 {
                     if (_waveIndex == waves.Length)
-                    {
-                        GameManager.Instance.SetPlayerIsWon();
+                    {  
+                        Boss.SetActive(true);
                         _state = State.Idle;
                     }
                     else

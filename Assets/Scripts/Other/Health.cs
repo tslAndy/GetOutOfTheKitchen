@@ -42,6 +42,10 @@ namespace Other
             CaloriesCounterSingleton.Instance.AddCalories(calories);
 
             Destroy(gameObject);
+            if(gameObject.tag == "Boss")
+            {
+                GameManager.Instance.SetPlayerIsWon();
+            }
         }
     }
 }
