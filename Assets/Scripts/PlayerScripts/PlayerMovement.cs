@@ -12,6 +12,7 @@ namespace PlayerScripts
         private bool _grounded, _canMakeDoubleJump;
         private Collider2D _platformCollider;
 
+
         // Moving on the ground
         public void Move(Vector2 direction)
         {

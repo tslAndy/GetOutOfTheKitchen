@@ -198,9 +198,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8448558845019198518}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: GoToMainMenu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayClickSound, Assembly-CSharp
+        m_MethodName: MakeClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1405,13 +1405,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8448558845019198518}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: EnterMenu
-        m_Mode: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayClickSound, Assembly-CSharp
+        m_MethodName: MakeClickSound
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 8448558844574367848}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1504,10 +1504,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6030480944559012048}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8448558844952255550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1656,6 +1668,7 @@ GameObject:
   - component: {fileID: 8448558845019198520}
   - component: {fileID: 8448558845019198521}
   - component: {fileID: 8448558845019198518}
+  - component: {fileID: 6030480944559012048}
   m_Layer: 5
   m_Name: PauseMenuWithShop
   m_TagString: Untagged
@@ -1679,7 +1692,7 @@ RectTransform:
   - {fileID: 8448558844574367847}
   - {fileID: 8681771421820342867}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1761,6 +1774,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 8448558844469634355}
+--- !u!114 &6030480944559012048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448558845019198523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d26f0292eb3614f8b3e2f3d6f0703b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 2073394d9fc12a047b38384c93c44b5b, type: 2}
+  _musicSlider: {fileID: 8448558845505652776}
+  _SFXSlider: {fileID: 8448558844641815135}
 --- !u!1 &8448558845085983755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,9 +1911,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8448558845019198518}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: HandleEscapeAction
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayClickSound, Assembly-CSharp
+        m_MethodName: MakeClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2228,13 +2256,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8448558845019198518}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: EnterMenu
-        m_Mode: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayClickSound, Assembly-CSharp
+        m_MethodName: MakeClickSound
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 8681771421820342864}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2440,10 +2468,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.001
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6030480944559012048}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8448558845569780758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,9 +2817,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8448558845019198518}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: HandleEscapeAction
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PlayClickSound, Assembly-CSharp
+        m_MethodName: MakeClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3043,11 +3083,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0efcd201f7ebcac4893726619604a6f9, type: 3}
---- !u!1 &8681771421820342864 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6317618563380482846, guid: 0efcd201f7ebcac4893726619604a6f9, type: 3}
-  m_PrefabInstance: {fileID: 3447340039494189390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8681771421820342867 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6317618563380482845, guid: 0efcd201f7ebcac4893726619604a6f9, type: 3}
