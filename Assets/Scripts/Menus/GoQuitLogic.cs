@@ -7,7 +7,7 @@ public class GoQuitLogic : MonoBehaviour
 {
     [SerializeField] private GameObject SettingsMenu;
     [Header("Only for Main Menu")]
-    [SerializeField] private GameObject MainMenu;
+    [SerializeField] private GameObject MainMenu, HowToPlay;
     public void GoToLevel()
    {
         if(SceneManager.GetActiveScene().buildIndex == 0)
@@ -50,5 +50,17 @@ public class GoQuitLogic : MonoBehaviour
             SettingsMenu.SetActive(true);
         }
     }
+    public void OpenTutorial()
+    {
+        MainMenu.SetActive(false);
+        HowToPlay.SetActive(true);
+    }
+    public void CloseTutorial()
+    {
+        HowToPlay.SetActive(false);
+        MainMenu.SetActive(true);
+    }
+    
+    
 
 }

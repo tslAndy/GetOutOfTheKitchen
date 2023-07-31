@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc3919a9e071a174daf07ab6286b3b9a, type: 3}
-  m_Name: Ketchup
+  m_Name: HotSouce
   m_EditorClassIdentifier: 
-  item: {fileID: 1285492204359248167, guid: 9b501e5375646a244ba6fde43ef07997, type: 3}
-  goodName: Pistol ketchup
-  goodPrice: 1000
-  goodTexture: {fileID: 2800000, guid: 86cd49d3912ab8f48beed852bddd4642, type: 3}
+  item: {fileID: 1285492204359248167, guid: d0ecb28e74c337a468c652ee89d47150, type: 3}
+  goodName: Hot Sauce
+  goodPrice: 500
+  goodTexture: {fileID: 2800000, guid: d0560c7af7e439146bc3f8bc89b929d2, type: 3}
