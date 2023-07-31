@@ -15,6 +15,7 @@ public class DonutExitState : DonutBaseState
     }
     public override void UpdateState(DonutStateManager context)
     {
+        Debug.Log("exit");
         _currentTime += Time.deltaTime;
         float _percentageComplete = _currentTime / _desiredDuration;
         context.transform.position = Vector2.Lerp(_donutInitialPosition, _endPosition, _percentageComplete);

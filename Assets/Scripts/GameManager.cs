@@ -63,8 +63,15 @@ public class GameManager : Singleton<GameManager>
         deathScreen.SetActive(true);
         Time.timeScale = 0f;
     }
-    
-    public void SetPlayerIsWon()
+    public bool IsPlayerDead()
+    {
+        if (_playerIsDead)
+            return true;
+        else
+            return false;
+    }
+
+        public void SetPlayerIsWon()
     {
         _playerWon = true;
         winScreen.SetActive(true);

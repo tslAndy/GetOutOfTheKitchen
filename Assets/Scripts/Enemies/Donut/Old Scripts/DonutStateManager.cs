@@ -6,12 +6,13 @@ public class DonutStateManager : MonoBehaviour
 {
     DonutBaseState currentState;
     [HideInInspector] public DonutEnterState donutEnterState = new();
-    [HideInInspector] public DonutLaserState donutLaserState = new();
+    [HideInInspector] public DonutUpdateState donutLaserState = new();
     [HideInInspector] public DonutExitState donutExitState = new();
 
-    public Transform topPoint;
-    public Transform sidePoint;
+    public Transform firstStop , zeroStop;
+    public Transform secondStop;
     public float speedInAttack;
+    public int howManyRounds;
 
     void Start()
     {
