@@ -9,6 +9,8 @@ TagManager:
   - OneWayPlatform
   - PlayerBullet
   - Wall
+  - EnemyBullet
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - EnemyBullets
   - Platforms
   - Bounds
-  - 
+  - InvisibleWall
   - 
   - 
   - 
